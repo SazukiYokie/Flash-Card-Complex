@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="km" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>រូបវិទ្យាថ្នាក់ទី១២ | ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន និង ច្បាប់ទី១ ទែម៉ូឌីណាមិច</title>
+
+  <!-- Google Fonts: Kantumruy Pro, Battambang, Moul, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=JetBrains+Mono:ital,wght@0,400;0,600;0,700;1,400&family=Kantumruy+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Moul&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configure Tailwind for Khmer Typography & Custom Colors -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            khmer: ['"Kantumruy Pro"', '"Battambang"', 'sans-serif'],
+            moul: ['"Moul"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            darkBg: '#070B14',
+            darkCard: '#0F172A',
+            darkBorder: '#1E293B',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Global Khmer Typography & Mobile-First Rules */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      font-family: 'Kantumruy Pro', 'Battambang', sans-serif;
+      line-height: 1.85;
+      overflow-x: hidden;
+      letter-spacing: 0.01em;
+    }
+
+    .font-moul {
+      font-family: 'Moul', serif;
+      line-height: 1.75;
+    }
+
+    /* Mathematical Formula Styling */
+    .math-box {
+      font-family: 'JetBrains Mono', 'Kantumruy Pro', monospace;
+      line-height: 1.65;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .math-box::-webkit-scrollbar {
+      height: 4px;
+    }
+    .math-box::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.4);
+      border-radius: 9999px;
+    }
+
+    /* Stacked Fractions for Authentic Physics Textbook Look */
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      vertical-align: middle;
+      margin: 0 0.2em;
+      font-size: 0.92em;
+      line-height: 1.25;
+    }
+    .frac > .num {
+      border-bottom: 1.5px solid currentColor;
+      padding: 0 0.3em 0.1em;
+      width: 100%;
+      text-align: center;
+    }
+    .frac > .den {
+      padding: 0.1em 0.3em 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Square Root Bar Styling */
+    .sqrt {
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+    }
+    .sqrt-sign {
+      font-size: 1.25em;
+      line-height: 1;
+      margin-right: 1px;
+    }
+    .sqrt-body {
+      border-top: 1.5px solid currentColor;
+      padding-top: 2px;
+      padding-left: 2px;
+      padding-right: 3px;
+    }
+
+    /* 3D Flashcard Flip Perspectives */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    /* Animated Molecule inside 3D Cube SVG */
+    @keyframes bounceMolecule {
+      0% { cx: 65; cy: 115; }
+      50% { cx: 195; cy: 115; }
+      100% { cx: 65; cy: 115; }
+    }
+    .molecule-dot {
+      animation: bounceMolecule 2.8s ease-in-out infinite;
+    }
+
+    /* Custom Subtle Glows */
+    .neon-card-cyan {
+      box-shadow: 0 8px 30px -12px rgba(6, 182, 212, 0.22);
+    }
+    .neon-card-indigo {
+      box-shadow: 0 8px 30px -12px rgba(99, 102, 241, 0.22);
+    }
+    .neon-card-emerald {
+      box-shadow: 0 8px 30px -12px rgba(16, 185, 129, 0.22);
+    }
+
+    /* Hide scrollbar for horizontal filter pills */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-darkBg dark:text-slate-100 min-h-screen pb-28 md:pb-16 selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+
+  <!-- Ambient Background Gradient Orbs -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-24 -left-24 w-72 h-72 bg-cyan-500/15 dark:bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-24 w-80 h-80 bg-indigo-500/15 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-1/4 w-72 h-72 bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Toast Notification Box (No alert() used) -->
+  <div id="toastBox" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-3 transition-all duration-300 bg-slate-900/95 dark:bg-cyan-500 text-white dark:text-slate-950 font-semibold text-sm px-4 py-2.5 rounded-2xl shadow-xl flex items-center gap-2 border border-white/10">
+    <span id="toastIcon">✨</span>
+    <span id="toastMessage">បានចម្លងរូបមន្តរួចរាល់!</span>
+  </div>
+
+  <!-- STICKY TOP HEADER -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-white/85 dark:bg-slate-950/85 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 pt-3 pb-2.5">
+      <!-- Top Row: Title & Theme Toggle -->
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-cyan-500/20 shrink-0">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div class="truncate">
+            <div class="flex items-center gap-1.5">
+              <h1 class="font-moul text-sm sm:text-base text-slate-900 dark:text-white truncate">រូបវិទ្យាថ្នាក់ទី១២</h1>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 shrink-0">BacII</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 truncate">មេរៀនទី១ & ទី២ • អ្នកគ្រូ ស្រេង ស៊ូគាង</p>
+          </div>
+        </div>
+
+        <!-- Right Controls: Progress Pill & Theme Button -->
+        <div class="flex items-center gap-2 shrink-0">
+          <div class="hidden sm:flex items-center gap-2 bg-slate-100 dark:bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs">
+            <span class="text-slate-500 dark:text-slate-400">ចាំហើយ៖</span>
+            <span id="headerProgressTextDesktop" class="font-bold text-cyan-600 dark:text-cyan-400">0/12</span>
+          </div>
+
+          <button id="themeToggleBtn" onclick="toggleTheme()" aria-label="ប្ដូរពណ៌ផ្ទៃ" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 active:scale-95 transition">
+            <!-- Sun Icon (shown in dark mode) -->
+            <svg id="sunIcon" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            <!-- Moon Icon (shown in light mode) -->
+            <svg id="moonIcon" class="w-5 h-5 block dark:hidden text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Bar for Mobile + Search Input -->
+      <div class="mt-2.5 flex items-center gap-2">
+        <div class="relative flex-1">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input
+            id="globalSearchInput"
+            type="text"
+            oninput="handleGlobalSearch(this.value)"
+            placeholder="ស្វែងរករូបមន្ត, សំណួរ, អថេរ (ឧ. PV=nRT, អ៊ីសូបារ, ស៊ីនេទិច)..."
+            class="w-full pl-9 pr-8 py-2 text-xs sm:text-sm rounded-xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 focus:outline-none focus:border-cyan-500 dark:focus:border-cyan-400 text-slate-800 dark:text-slate-100 placeholder-slate-400 transition"
+          />
+          <button id="clearSearchBtn" onclick="clearGlobalSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+            ✕
+          </button>
+        </div>
+
+        <!-- Mobile Mastery Counter -->
+        <div class="flex sm:hidden items-center gap-1.5 bg-slate-100 dark:bg-slate-900 px-2.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 text-xs shrink-0">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="headerProgressTextMobile" class="font-bold text-cyan-600 dark:text-cyan-400">0/12</span>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Tabs -->
+      <nav class="hidden md:flex items-center gap-2 mt-3 pt-2 border-t border-slate-200/60 dark:border-slate-800/60">
+        <button onclick="switchMainTab('formulas')" data-tab="formulas" class="main-nav-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition">
+          <span>📐</span> <span>រូបមន្ត & ក្រាប (មេរៀនទី១ & ទី២)</span>
+        </button>
+        <button onclick="switchMainTab('qa')" data-tab="qa" class="main-nav-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition">
+          <span>❓</span> <span>សំណួរ-ចម្លើយ (១២ សំណួរ)</span>
+        </button>
+        <button onclick="switchMainTab('flashcards')" data-tab="flashcards" class="main-nav-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition">
+          <span>🎴</span> <span>បណ្ណចងចាំ & តេស្ត</span>
+        </button>
+        <button onclick="switchMainTab('calculator')" data-tab="calculator" class="main-nav-btn flex-1 py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition">
+          <span>🧮</span> <span>ម៉ាស៊ីនគណនារូបមន្ត</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Thin Mastery Progress Bar -->
+    <div class="w-full h-1 bg-slate-200 dark:bg-slate-800 overflow-hidden">
+      <div id="topProgressBar" class="h-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-emerald-500 transition-all duration-500" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="relative z-10 max-w-4xl mx-auto px-4 pt-4">
+
+    <!-- HERO BANNER / QUICK SUMMARY -->
+    <section class="mb-5 p-4 sm:p-5 rounded-[20px] bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950 text-white border border-slate-800 shadow-xl relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 w-44 h-44 bg-cyan-500/20 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-1.5">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-xs font-medium">
+            <span>🎓 ត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ</span>
+          </div>
+          <h2 class="font-moul text-base sm:text-lg text-white leading-relaxed">
+            ជំពូកទី១៖ ទែម៉ូឌីណាមិច (មេរៀនទី១ និង មេរៀនទី២)
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            បណ្ដុំរូបមន្តសង្ខេប ក្រាប <span class="font-mono text-cyan-300">P-V</span> និងសំណួរ-ចម្លើយទាំង ១២ ครบគ្រប់ចំណុច ងាយស្រួលរំលឹកលើទូរស័ព្ទដៃ។
+          </p>
+        </div>
+
+        <!-- Quick Jump Lesson Pills -->
+        <div class="flex sm:flex-col gap-2 shrink-0">
+          <button onclick="jumpToLesson('lesson1')" class="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/40 text-cyan-200 text-xs font-semibold flex items-center justify-center gap-1.5 active:scale-95 transition">
+            <span>⚡ មេរៀនទី១៖ ឧស្ម័ន</span>
+          </button>
+          <button onclick="jumpToLesson('lesson2')" class="flex-1 sm:flex-none px-3.5 py-2 rounded-xl bg-indigo-500/25 hover:bg-indigo-500/35 border border-indigo-400/40 text-indigo-200 text-xs font-semibold flex items-center justify-center gap-1.5 active:scale-95 transition">
+            <span>🔥 មេរៀនទី២៖ ច្បាប់ទី១</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 1: FORMULAS & DIAGRAMS (រូបមន្ត & ក្រាប មេរៀនទី១ និង ទី២)        -->
+    <!-- =================================================================== -->
+    <section id="tab-formulas" class="tab-section space-y-6">
+
+      <!-- Sub-filter Pills for Formulas -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button onclick="filterFormulaSection('all')" data-fsec="all" class="formula-filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 shadow-sm transition">
+          📚 ទាំងអស់
+        </button>
+        <button onclick="filterFormulaSection('lesson1')" data-fsec="lesson1" class="formula-filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition">
+          ១. ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន
+        </button>
+        <button onclick="filterFormulaSection('lesson2')" data-fsec="lesson2" class="formula-filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition">
+          ២. ច្បាប់ទី១ ទែម៉ូឌីណាមិច
+        </button>
+        <button onclick="filterFormulaSection('variables')" data-fsec="variables" class="formula-filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition">
+          🔖 អថេរ & តម្លៃថេរ
+        </button>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- LESSON 1 BLOCK: ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន                          -->
+      <!-- =============================================================== -->
+      <div id="block-lesson1" class="formula-group space-y-4">
+        <!-- Section Banner -->
+        <div class="p-4 rounded-[18px] bg-gradient-to-r from-cyan-600/15 via-blue-600/10 to-transparent border border-cyan-500/30 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">មេរៀនទី ១ • ទំព័រទី ១</span>
+            <h3 class="font-moul text-base sm:text-lg text-slate-900 dark:text-white mt-0.5">ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន</h3>
+          </div>
+          <span class="text-2xl">🫧</span>
+        </div>
+
+        <!-- Card 1.1: សមីការភាព // សមីការឧស្ម័នបរិសុទ្ធ -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder neon-card-cyan space-y-4">
+          <div class="flex items-start justify-between gap-2">
+            <h4 class="font-bold text-sm sm:text-base text-cyan-700 dark:text-cyan-400 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-xs font-mono">១</span>
+              <span>សមីការភាព // សមីការឧស្ម័នបរិសុទ្ធ</span>
+            </h4>
+            <button onclick="copyFormulaText('PV = nRT = N·k_B·T = (2/3)N·K_av')" class="text-xs px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-cyan-500/20 hover:text-cyan-400 transition shrink-0">
+              ចម្លងរូបមន្ត
+            </button>
+          </div>
+
+          <!-- Highlighted Formula Box -->
+          <div class="math-box p-3.5 rounded-2xl bg-slate-900 text-cyan-300 border border-cyan-500/30 text-center text-sm sm:text-base font-semibold shadow-inner">
+            PV = nRT = N&middot;k<sub>B</sub>T = <span class="frac"><span class="num">2</span><span class="den">3</span></span>N&middot;K<sub>av</sub>
+          </div>
+
+          <!-- គោលការណ៍ភាពដើម - ភាពស្រេច -->
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/70 border border-slate-200 dark:border-slate-800 space-y-2.5">
+            <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+              <span>• គោលការណ៍ភាពដើម - ភាពស្រេច :</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">– ភាពដើម:</span>
+                <span class="math-box font-bold">P<sub>1</sub>V<sub>1</sub> = nRT<sub>1</sub></span>
+                <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 text-[11px] flex items-center justify-center font-mono">1</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">– ភាពស្រេច:</span>
+                <span class="math-box font-bold">P<sub>2</sub>V<sub>2</sub> = nRT<sub>2</sub></span>
+                <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 text-[11px] flex items-center justify-center font-mono">2</span>
+              </div>
+            </div>
+            <p class="text-xs text-amber-700 dark:text-amber-300 bg-amber-500/10 border border-amber-500/25 rounded-xl px-3 py-2">
+              <strong class="font-bold">✳✳ ចំណាំ:</strong> បើបរិមាណឧស្ម័នភាយចេញក្នុងពេលបម្លែងនោះ <span class="math-box font-bold underline">n<sub>1</sub> &ne; n<sub>2</sub></span> ។
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 1.2: ល្បឿនមធ្យម, មធ្យមការេល្បឿន និង ល្បឿនប្រសិទ្ធ -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder space-y-4">
+          <h4 class="font-bold text-sm sm:text-base text-cyan-700 dark:text-cyan-400 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-xs font-mono">២</span>
+            <span>ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន (ល្បឿន និង សម្ពាធលើផ្ទៃខាង)</span>
+          </h4>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            <!-- តម្លៃមធ្យមនៃល្បឿន -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• តម្លៃមធ្យមនៃល្បឿន:</div>
+              <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center text-xs sm:text-sm font-semibold">
+                v<sub>av</sub> = <span class="frac"><span class="num">v<sub>1</sub> + v<sub>2</sub> + v<sub>3</sub> + ... + v<sub>N</sub></span><span class="den">N</span></span>
+              </div>
+            </div>
+
+            <!-- តម្លៃមធ្យមនៃការេល្បឿន -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• តម្លៃមធ្យមនៃការេល្បឿន:</div>
+              <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center text-xs sm:text-sm font-semibold">
+                (v<sup>2</sup>)<sub>av</sub> = <span class="frac"><span class="num">v<sub>1</sub><sup>2</sup> + v<sub>2</sub><sup>2</sup> + v<sub>3</sub><sup>2</sup> + ... + v<sub>N</sub><sup>2</sup></span><span class="den">N</span></span>
+              </div>
+            </div>
+
+            <!-- ល្បឿនឫសការេនៃមធ្យមការេ ឬ ល្បឿនប្រសិទ្ធ -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• ល្បឿនឫសការេនៃមធ្យមការេ ឬ ល្បឿនប្រសិទ្ធ:</div>
+              <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center text-xs sm:text-sm font-semibold">
+                v<sub>rms</sub> = <span class="sqrt"><span class="sqrt-sign">&radic;</span><span class="sqrt-body"><span class="frac"><span class="num">v<sub>1</sub><sup>2</sup> + v<sub>2</sub><sup>2</sup> + v<sub>3</sub><sup>2</sup> + ... + v<sub>N</sub><sup>2</sup></span><span class="den">N</span></span></span></span>
+              </div>
+            </div>
+
+            <!-- សម្ពាធលើផ្ទៃខាង -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-2">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• សម្ពាធលើផ្ទៃខាង:</div>
+              <div class="math-box p-3 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center text-sm sm:text-base font-bold text-cyan-600 dark:text-cyan-400">
+                P = <span class="frac"><span class="num">F</span><span class="den">A</span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 1.3: បរិមាណចលនា, ទង្គិច និង ចលនាម៉ូលេគុលឧស្ម័នក្នុងគូប 3D -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder space-y-4">
+          <h4 class="font-bold text-sm sm:text-base text-cyan-700 dark:text-cyan-400 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-xs font-mono">២.១</span>
+            <span>បម្រែបម្រួលបរិមាណចលនា & ចលនាម៉ូលេគុលក្នុងគូប</span>
+          </h4>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+            <div class="space-y-3 text-xs sm:text-sm">
+              <!-- បម្រែបម្រួលបរិមាណចលនា -->
+              <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-1.5">
+                <div class="font-bold text-rose-600 dark:text-rose-400">• បម្រែបម្រួលបរិមាណចលនា :</div>
+                <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2 font-semibold">
+                  <span>&Delta;p = m&Delta;v = m(v<sub>f</sub> &minus; v<sub>i</sub>)</span>
+                  <span class="text-slate-400">|</span>
+                  <span class="text-xs leading-tight">p<sub>i</sub> = mv<sub>i</sub><br>p<sub>f</sub> = mv<sub>f</sub></span>
+                </div>
+              </div>
+
+              <!-- អាំងពុលស្យុង & ទង្គិច -->
+              <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-rose-600 dark:text-rose-400">• អាំងពុលស្យុង :</span>
+                  <span class="math-box px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/30 font-bold text-cyan-600 dark:text-cyan-300">F &times; &Delta;t = &Delta;p</span>
+                </div>
+                <div>
+                  <span class="font-bold text-rose-600 dark:text-rose-400">• ទង្គិចខ្នាត :</span>
+                  <span>ល្បឿនមុន និង ក្រោយទង្គិច </span>
+                  <span class="math-box font-bold text-indigo-600 dark:text-indigo-400">v&#8407;<sub>f</sub> = &minus;v&#8407;<sub>i</sub></span>
+                  <span class="text-slate-500 dark:text-slate-400"> (តម្លៃស្មើគ្នា ទិសដៅផ្ទុយគ្នា)</span>
+                </div>
+                <div>
+                  <span class="font-bold text-rose-600 dark:text-rose-400">• ទង្គិចស្ទក់ :</span>
+                  <span>ល្បឿនក្រោយទង្គិច </span>
+                  <span class="math-box font-bold text-amber-600 dark:text-amber-400">v<sub>f</sub> = 0</span>
+                </div>
+                <div>
+                  <span class="font-bold text-rose-600 dark:text-rose-400">• សមីការចលនាត្រង់ស្មើ :</span>
+                  <span class="math-box font-bold text-emerald-600 dark:text-emerald-400 ml-1">x = v<sub>x</sub> &times; &Delta;t</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive 3D Cube SVG Diagram (ចលនាម៉ូលេគុលឧស្ម័ន) -->
+            <div class="p-3.5 rounded-2xl bg-slate-900 text-white border border-slate-800 flex flex-col items-center">
+              <div class="text-xs font-semibold text-cyan-300 mb-1">គំនូសបំព្រួញ៖ ចលនាម៉ូលេគុលឧស្ម័នក្នុងគូបប្រវែង L</div>
+              <svg viewBox="0 0 280 205" class="w-full max-w-[270px] h-auto">
+                <!-- Axes -->
+                <line x1="65" y1="155" x2="245" y2="155" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="250" y="158" fill="#94a3b8" font-size="11" font-family="monospace">x</text>
+                <line x1="65" y1="30" x2="65" y2="155" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="61" y="22" fill="#94a3b8" font-size="11" font-family="monospace">z</text>
+                <line x1="65" y1="155" x2="25" y2="190" stroke="#64748b" stroke-width="1.2" stroke-dasharray="3 3"/>
+                <text x="14" y="196" fill="#94a3b8" font-size="11" font-family="monospace">y</text>
+
+                <!-- Back Cube Face -->
+                <rect x="85" y="45" width="110" height="100" fill="none" stroke="#475569" stroke-width="1.5"/>
+                <!-- Front Cube Face -->
+                <rect x="50" y="75" width="110" height="100" fill="rgba(6, 182, 212, 0.05)" stroke="#38bdf8" stroke-width="1.8"/>
+                <!-- Connecting Edges -->
+                <line x1="50" y1="75" x2="85" y2="45" stroke="#38bdf8" stroke-width="1.5"/>
+                <line x1="160" y1="75" x2="195" y2="45" stroke="#38bdf8" stroke-width="1.5"/>
+                <line x1="50" y1="175" x2="85" y2="145" stroke="#475569" stroke-width="1.5"/>
+                <line x1="160" y1="175" x2="195" y2="145" stroke="#38bdf8" stroke-width="1.5"/>
+
+                <!-- Left Face A and Right Face B Highlight -->
+                <polygon points="50,75 85,45 85,145 50,175" fill="rgba(16, 185, 129, 0.14)" stroke="#10b981" stroke-width="1.5"/>
+                <polygon points="160,75 195,45 195,145 160,175" fill="rgba(244, 63, 94, 0.14)" stroke="#f43f5e" stroke-width="1.5"/>
+
+                <!-- Labels A, B, L -->
+                <text x="12" y="130" fill="#34d399" font-size="11" font-weight="bold">ផ្ទៃខាង A</text>
+                <text x="202" y="105" fill="#fb7185" font-size="11" font-weight="bold">ផ្ទៃខាង B</text>
+                <text x="130" y="38" fill="#e2e8f0" font-size="12" font-family="monospace">L</text>
+
+                <!-- Velocity Vectors v_i and v_f -->
+                <line x1="95" y1="108" x2="145" y2="108" stroke="#38bdf8" stroke-width="2"/>
+                <polygon points="145,104 153,108 145,112" fill="#38bdf8"/>
+                <text x="115" y="100" fill="#38bdf8" font-size="11" font-family="monospace">v&#8407;ᵢ</text>
+
+                <line x1="150" y1="125" x2="100" y2="125" stroke="#f43f5e" stroke-width="2"/>
+                <polygon points="100,121 92,125 100,129" fill="#f43f5e"/>
+                <text x="118" y="140" fill="#fb7185" font-size="11" font-family="monospace">v&#8407;𝑓</text>
+
+                <!-- Animated Molecule -->
+                <circle class="molecule-dot" cx="115" cy="115" r="5" fill="#22d3ee" stroke="#ffffff" stroke-width="1.5"/>
+              </svg>
+
+              <!-- Distance Rules under Cube -->
+              <div class="w-full mt-2 space-y-1 text-xs bg-slate-950/90 p-2.5 rounded-xl border border-slate-800">
+                <p class="text-emerald-300">&gt; បើម៉ូលេគុលចេញពី <span class="font-mono font-bold">A</span> ដល់ <span class="font-mono font-bold">B</span> នោះវាចរបានចម្ងាយ <span class="font-mono font-bold underline text-white">x = L</span> ។</p>
+                <p class="text-cyan-300">&gt; បើម៉ូលេគុលចេញពី <span class="font-mono font-bold">A</span> ទៅ <span class="font-mono font-bold">B</span> ហើយមកដល់ <span class="font-mono font-bold">A</span> វិញ នោះវាចរបានចម្ងាយ <span class="font-mono font-bold underline text-white">x = 2L</span> ។</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 1.4: សម្ពាធ, ថាមពលស៊ីនេទិច និង ល្បឿនប្រសិទ្ធ -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder space-y-4">
+          <h4 class="font-bold text-sm sm:text-base text-cyan-700 dark:text-cyan-400 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-xs font-mono">២.២</span>
+            <span>សម្ពាធ និង ថាមពលស៊ីនេទិចនៃឧស្ម័ន</span>
+          </h4>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            <!-- សម្ពាធក្នុងទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2.5">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• សម្ពាធក្នុងទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន :</div>
+              <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center text-xs sm:text-sm font-semibold">
+                P = <span class="frac"><span class="num">2</span><span class="den">3</span></span><span class="frac"><span class="num">N</span><span class="den">V</span></span> &times; <span class="frac"><span class="num">1</span><span class="den">2</span></span>m<sub>0</sub>(v<sup>2</sup>)<sub>av</sub> = <span class="frac"><span class="num">2</span><span class="den">3</span></span><span class="frac"><span class="num">N</span><span class="den">V</span></span> &times; K<sub>av</sub>
+              </div>
+              <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-center text-xs sm:text-sm font-semibold">
+                P = <span class="frac"><span class="num">1</span><span class="den">3</span></span><span class="frac"><span class="num">m</span><span class="den">V</span></span> &times; (v<sup>2</sup>)<sub>av</sub> = <span class="frac"><span class="num">1</span><span class="den">3</span></span>&rho; &times; (v<sup>2</sup>)<sub>av</sub>
+              </div>
+            </div>
+
+            <!-- ថាមពលស៊ីនេទិចមធ្យម (១ ម៉ូលេគុល) -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2.5 flex flex-col justify-between">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">
+                • ថាមពលស៊ីនេទិចមធ្យម ឬ ថាមពលស៊ីនេទិចនៃឧស្ម័ន ១ម៉ូលេគុល :
+              </div>
+              <div class="math-box p-3 rounded-xl bg-white dark:bg-slate-950 border border-cyan-500/30 text-center text-xs sm:text-sm font-bold text-cyan-600 dark:text-cyan-300">
+                K<sub>av</sub> = <span class="frac"><span class="num">1</span><span class="den">2</span></span>m<sub>0</sub>(v<sup>2</sup>)<sub>av</sub> = <span class="frac"><span class="num">1</span><span class="den">2</span></span>m<sub>0</sub>v<sub>rms</sub><sup>2</sup> = <span class="frac"><span class="num">3</span><span class="den">2</span></span>k<sub>B</sub>T
+              </div>
+            </div>
+
+            <!-- ថាមពលស៊ីនេទិចសរុប -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• ថាមពលស៊ីនេទិចសរុប :</div>
+              <div class="math-box p-3 rounded-xl bg-white dark:bg-slate-950 border border-emerald-500/30 text-center text-xs sm:text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                K = N&middot;K<sub>av</sub> = <span class="frac"><span class="num">3</span><span class="den">2</span></span>N&middot;k<sub>B</sub>T = <span class="frac"><span class="num">3</span><span class="den">2</span></span>nRT
+              </div>
+            </div>
+
+            <!-- ល្បឿនប្រសិទ្ធនៃម៉ូលេគុលនីមួយៗ -->
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-2">
+              <div class="text-xs sm:text-sm font-bold text-rose-600 dark:text-rose-400">• ល្បឿនប្រសិទ្ធនៃម៉ូលេគុលនីមួយៗ :</div>
+              <div class="math-box p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-indigo-500/30 text-center text-xs sm:text-sm font-bold text-indigo-600 dark:text-indigo-300">
+                v<sub>rms</sub> = <span class="sqrt"><span class="sqrt-sign">&radic;</span><span class="sqrt-body">(v<sup>2</sup>)<sub>av</sub></span></span> = <span class="sqrt"><span class="sqrt-sign">&radic;</span><span class="sqrt-body"><span class="frac"><span class="num">3k<sub>B</sub>T</span><span class="den">m<sub>0</sub></span></span></span></span> = <span class="sqrt"><span class="sqrt-sign">&radic;</span><span class="sqrt-body"><span class="frac"><span class="num">3RT</span><span class="den">M</span></span></span></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 1.5: ៣. ទំនាក់ទំនងរវាង R, N, N_A, k_B, n, m, M -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder space-y-4">
+          <h4 class="font-bold text-sm sm:text-base text-cyan-700 dark:text-cyan-400 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-cyan-500/15 text-cyan-600 dark:text-cyan-300 flex items-center justify-center text-xs font-mono">៣</span>
+            <span>ទំនាក់ទំនងរវាង <span class="font-mono">R, N, N<sub>A</sub>, k<sub>B</sub>, n, m, M</span></span>
+          </h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-sm">
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ថេរសកលនៃឧស្ម័ន :</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">R = N<sub>A</sub> &middot; k<sub>B</sub></div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ដង់ស៊ីតេម៉ាស // ម៉ាសមាឌ:</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">&rho; = <span class="frac"><span class="num">m</span><span class="den">V</span></span></div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between sm:col-span-2">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ចំនួនម៉ូល :</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">
+                n = <span class="frac"><span class="num">m</span><span class="den">M</span></span> = <span class="frac"><span class="num">N</span><span class="den">N<sub>A</sub></span></span> = <span class="frac"><span class="num">V</span><span class="den">V<sub>mol</sub></span></span>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ដង់ស៊ីតេចំនួនផង់ :</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">d = <span class="frac"><span class="num">N</span><span class="den">V</span></span></div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ចំនួនម៉ូលេគុល :</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">N = <span class="frac"><span class="num">m</span><span class="den">m<sub>0</sub></span></span> = n &middot; N<sub>A</sub></div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ម៉ាសម៉ូល :</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">M = N<sub>A</sub> &middot; m<sub>0</sub></div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ម៉ាសម៉ូលេគុល ១ :</span>
+              <div class="math-box mt-2 p-2 rounded-xl bg-white dark:bg-slate-950 text-center font-bold">m<sub>0</sub> = <span class="frac"><span class="num">M</span><span class="den">N<sub>A</sub></span></span> = <span class="frac"><span class="num">m</span><span class="den">N</span></span></div>
+            </div>
+
+            <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 flex flex-col justify-between sm:col-span-2 lg:col-span-4">
+              <span class="font-bold text-rose-600 dark:text-rose-400">• ម៉ាសសរុប :</span>
+              <div class="math-box mt-2 p-2.5 rounded-xl bg-white dark:bg-slate-950 text-center font-bold text-cyan-600 dark:text-cyan-400">
+                m = n &middot; M = N &middot; m<sub>0</sub> = &rho; &middot; V
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- LESSON 2 BLOCK: ច្បាប់ទី១ ទែម៉ូឌីណាមិច                            -->
+      <!-- =============================================================== -->
+      <div id="block-lesson2" class="formula-group space-y-4 pt-2">
+        <!-- Section Banner -->
+        <div class="p-4 rounded-[18px] bg-gradient-to-r from-indigo-600/15 via-purple-600/10 to-transparent border border-indigo-500/30 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">មេរៀនទី ២ • ទំព័រទី ២ & ៣</span>
+            <h3 class="font-moul text-base sm:text-lg text-slate-900 dark:text-white mt-0.5">ច្បាប់ទី១ ទែម៉ូឌីណាមិច</h3>
+          </div>
+          <span class="text-2xl">🔥</span>
+        </div>
+
+        <!-- Card 2.1: ១. កម្មន្តនៃប្រព័ន្ធឧស្ម័ន (៤ លំនាំ + Interactive SVG Graphs) -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder neon-card-indigo space-y-5">
+          <h4 class="font-bold text-sm sm:text-base text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xs font-mono">១</span>
+            <span>កម្មន្តនៃប្រព័ន្ធឧស្ម័ន (Work in Thermodynamic Processes)</span>
+          </h4>
+
+          <!-- Process 1: កម្មន្តនៃសម្ពាធថេរ (លំនាំអ៊ីសូបារ) -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <h5 class="font-bold text-xs sm:text-sm text-rose-600 dark:text-rose-400 underline underline-offset-4">
+                • កម្មន្តនៃសម្ពាធថេរ (លំនាំអ៊ីសូបារ - Isobaric Process):
+              </h5>
+              <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-300">P = ថេរ</span>
+            </div>
+
+            <div class="math-box p-3 rounded-xl bg-slate-900 text-cyan-300 border border-cyan-500/30 text-center text-sm sm:text-base font-bold">
+              W = F&Delta;x = P&Delta;V = P(V<sub>2</sub> &minus; V<sub>1</sub>)
+            </div>
+
+            <!-- Cylinder Formulas List -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm">
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; កម្លាំងច្រានពីស្តុង :</span>
+                <span class="math-box font-bold ml-1">F = PA</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; បម្លាស់ទីពីស្តុងពី x<sub>1</sub> ទៅ x<sub>2</sub> :</span>
+                <span class="math-box font-bold ml-1">&Delta;x = x<sub>2</sub> &minus; x<sub>1</sub></span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; មាឌទីតាំងដើម :</span>
+                <span class="math-box font-bold ml-1">V<sub>1</sub> = Ax<sub>1</sub></span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; មាឌទីតាំងស្រេច :</span>
+                <span class="math-box font-bold ml-1">V<sub>2</sub> = Ax<sub>2</sub></span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; ផ្ទៃមុខកាត់ស៊ីឡាំង :</span>
+                <span class="math-box font-bold ml-1">A = &pi;r<sup>2</sup> = <span class="frac"><span class="num">&pi;D<sup>2</sup></span><span class="den">4</span></span></span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <span class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; កាំមុខកាត់ស៊ីឡាំង :</span>
+                <span class="math-box font-bold ml-1">r = <span class="frac"><span class="num">D</span><span class="den">2</span></span></span>
+              </div>
+            </div>
+
+            <!-- 2 SVGs: Cylinder Piston & Isobaric P-V Diagram -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <!-- Cylinder & Piston SVG -->
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex flex-col items-center">
+                <span class="text-[11px] text-slate-400 mb-1">ស៊ីឡាំង និង ពីស្តុងផ្លាស់ទីពី x₁ ទៅ x₂</span>
+                <svg viewBox="0 0 260 135" class="w-full max-w-[250px] h-auto">
+                  <!-- Cylinder walls -->
+                  <polyline points="235,20 20,20 20,85 235,85" fill="none" stroke="#94a3b8" stroke-width="3"/>
+                  <!-- Force arrows F -->
+                  <line x1="40" y1="35" x2="80" y2="35" stroke="#38bdf8" stroke-width="1.8"/>
+                  <polygon points="80,32 86,35 80,38" fill="#38bdf8"/>
+                  <line x1="40" y1="52" x2="80" y2="52" stroke="#38bdf8" stroke-width="1.8"/>
+                  <polygon points="80,49 86,52 80,55" fill="#38bdf8"/>
+                  <line x1="40" y1="69" x2="80" y2="69" stroke="#38bdf8" stroke-width="1.8"/>
+                  <polygon points="80,66 86,69 80,72" fill="#38bdf8"/>
+                  <text x="27" y="56" fill="#38bdf8" font-size="13" font-family="monospace" font-weight="bold">F</text>
+                  <text x="65" y="64" fill="#cbd5e1" font-size="11" font-family="monospace">A</text>
+
+                  <!-- Piston at x1 (solid orange) -->
+                  <rect x="90" y="23" width="16" height="59" fill="#ea580c" stroke="#fdba74" stroke-width="1.5"/>
+                  <!-- Piston at x2 (dashed) -->
+                  <rect x="175" y="23" width="16" height="59" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+                  <!-- Dimension arrows x1, dx, x2 -->
+                  <line x1="20" y1="102" x2="98" y2="102" stroke="#e2e8f0" stroke-width="1.5"/>
+                  <polygon points="98,99 104,102 98,105" fill="#e2e8f0"/>
+                  <text x="52" y="114" fill="#e2e8f0" font-size="11" font-family="monospace">x₁</text>
+
+                  <line x1="98" y1="102" x2="180" y2="102" stroke="#22d3ee" stroke-width="1.8"/>
+                  <polygon points="180,99 186,102 180,105" fill="#22d3ee"/>
+                  <text x="134" y="97" fill="#22d3ee" font-size="11" font-family="monospace">&Delta;x</text>
+
+                  <line x1="20" y1="122" x2="180" y2="122" stroke="#94a3b8" stroke-width="1.5"/>
+                  <polygon points="180,119 186,122 180,125" fill="#94a3b8"/>
+                  <text x="95" y="133" fill="#94a3b8" font-size="11" font-family="monospace">x₂</text>
+                </svg>
+              </div>
+
+              <!-- Isobaric P-V Graph SVG -->
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex flex-col items-center">
+                <span class="text-[11px] text-slate-400 mb-1">ក្រាប P-V នៃលំនាំអ៊ីសូបារ (សម្ពាធថេរ)</span>
+                <svg viewBox="0 0 240 140" class="w-full max-w-[230px] h-auto">
+                  <!-- Axes -->
+                  <line x1="35" y1="115" x2="35" y2="15" stroke="#cbd5e1" stroke-width="1.8"/>
+                  <polygon points="32,18 35,10 38,18" fill="#cbd5e1"/>
+                  <text x="20" y="22" fill="#e2e8f0" font-size="12" font-family="monospace">P</text>
+
+                  <line x1="35" y1="115" x2="215" y2="115" stroke="#cbd5e1" stroke-width="1.8"/>
+                  <polygon points="212,112 220,115 212,118" fill="#cbd5e1"/>
+                  <text x="222" y="119" fill="#e2e8f0" font-size="12" font-family="monospace">V</text>
+
+                  <!-- Shaded Area W = P(V_B - V_A) -->
+                  <rect x="75" y="45" width="95" height="70" fill="rgba(6, 182, 212, 0.22)" stroke="#38bdf8" stroke-dasharray="3 3"/>
+                  <text x="97" y="85" fill="#67e8f9" font-size="11" font-family="monospace">W = P&Delta;V</text>
+
+                  <!-- Horizontal Isobaric Line A -> B -->
+                  <line x1="35" y1="45" x2="75" y2="45" stroke="#94a3b8" stroke-dasharray="3 3"/>
+                  <line x1="75" y1="45" x2="170" y2="45" stroke="#22d3ee" stroke-width="2.5"/>
+                  <polygon points="122,41 130,45 122,49" fill="#22d3ee"/>
+
+                  <circle cx="75" cy="45" r="3.5" fill="#22d3ee"/>
+                  <circle cx="170" cy="45" r="3.5" fill="#22d3ee"/>
+                  <text x="70" y="38" fill="#e2e8f0" font-size="11" font-family="monospace">A</text>
+                  <text x="167" y="38" fill="#e2e8f0" font-size="11" font-family="monospace">B</text>
+                  <text x="20" y="49" fill="#e2e8f0" font-size="11" font-family="monospace">P</text>
+                  <text x="22" y="125" fill="#94a3b8" font-size="11" font-family="monospace">0</text>
+                  <text x="68" y="128" fill="#e2e8f0" font-size="11" font-family="monospace">Vₐ</text>
+                  <text x="163" y="128" fill="#e2e8f0" font-size="11" font-family="monospace">Vᵦ</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Process 2 & 3 Grid: សម្ពាធប្រែប្រួលស្មើ & សីតុណ្ហភាពថេរ (អ៊ីសូទែម) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Process 2: កម្មន្តនៃសម្ពាធប្រែប្រួលស្មើ -->
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between">
+              <div class="space-y-2.5">
+                <h5 class="font-bold text-xs sm:text-sm text-rose-600 dark:text-rose-400 underline underline-offset-4">
+                  • កម្មន្តនៃសម្ពាធប្រែប្រួលស្មើ :
+                </h5>
+                <div class="math-box p-2.5 rounded-xl bg-slate-900 text-amber-300 border border-amber-500/30 text-center text-xs sm:text-sm font-bold">
+                  W = P<sub>1</sub>&Delta;V + <span class="frac"><span class="num">1</span><span class="den">2</span></span>&Delta;P&middot;&Delta;V = <span class="frac"><span class="num">P<sub>1</sub> + P<sub>2</sub></span><span class="den">2</span></span>&middot;&Delta;V
+                </div>
+                <div class="text-xs space-y-1 text-emerald-700 dark:text-emerald-400 font-semibold">
+                  <p>&gt; បម្រែបម្រួលមាឌ : <span class="math-box text-slate-900 dark:text-white">&Delta;V = V<sub>2</sub> &minus; V<sub>1</sub></span></p>
+                  <p>&gt; បម្រែបម្រួលសម្ពាធ : <span class="math-box text-slate-900 dark:text-white">&Delta;P = P<sub>2</sub> &minus; P<sub>1</sub></span></p>
+                </div>
+              </div>
+
+              <!-- SVG Trapezoid P-V Graph -->
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex flex-col items-center">
+                <svg viewBox="0 0 240 150" class="w-full max-w-[230px] h-auto">
+                  <line x1="38" y1="125" x2="38" y2="12" stroke="#cbd5e1" stroke-width="1.6"/>
+                  <polygon points="35,16 38,8 41,16" fill="#cbd5e1"/>
+                  <text x="23" y="20" fill="#e2e8f0" font-size="11" font-family="monospace">P</text>
+
+                  <line x1="38" y1="125" x2="215" y2="125" stroke="#cbd5e1" stroke-width="1.6"/>
+                  <polygon points="212,122 220,125 212,128" fill="#cbd5e1"/>
+                  <text x="223" y="129" fill="#e2e8f0" font-size="11" font-family="monospace">V</text>
+
+                  <!-- Shaded Triangle (top) + Rectangle (bottom) -->
+                  <polygon points="80,82 175,35 175,82" fill="rgba(245, 158, 11, 0.22)" stroke="#f59e0b" stroke-dasharray="2 2"/>
+                  <rect x="80" y="82" width="95" height="43" fill="rgba(6, 182, 212, 0.18)" stroke="#38bdf8" stroke-dasharray="2 2"/>
+
+                  <!-- Dashed projections -->
+                  <line x1="38" y1="82" x2="80" y2="82" stroke="#94a3b8" stroke-dasharray="3 3"/>
+                  <line x1="38" y1="35" x2="175" y2="35" stroke="#94a3b8" stroke-dasharray="3 3"/>
+
+                  <!-- Sloped Line A -> B -->
+                  <line x1="80" y1="82" x2="175" y2="35" stroke="#fbbf24" stroke-width="2.5"/>
+                  <circle cx="80" cy="82" r="3.5" fill="#fbbf24"/>
+                  <circle cx="175" cy="35" r="3.5" fill="#fbbf24"/>
+
+                  <text x="68" y="78" fill="#e2e8f0" font-size="11" font-family="monospace">A</text>
+                  <text x="172" y="28" fill="#e2e8f0" font-size="11" font-family="monospace">B</text>
+                  <text x="18" y="86" fill="#e2e8f0" font-size="10" font-family="monospace">Pₐ</text>
+                  <text x="18" y="39" fill="#e2e8f0" font-size="10" font-family="monospace">Pᵦ</text>
+                  <text x="74" y="138" fill="#e2e8f0" font-size="10" font-family="monospace">Vₐ</text>
+                  <text x="169" y="138" fill="#e2e8f0" font-size="10" font-family="monospace">Vᵦ</text>
+                  <text x="92" y="108" fill="#67e8f9" font-size="9.5" font-family="monospace">Pₐ(Vᵦ-Vₐ)</text>
+                  <text x="108" y="73" fill="#fde68a" font-size="9" font-family="monospace">&frac12;(Pᵦ-Pₐ)(Vᵦ-Vₐ)</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Process 3: កម្មន្តនៃសីតុណ្ហភាពថេរ (លំនាំអ៊ីសូទែម) -->
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 space-y-3 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <h5 class="font-bold text-xs sm:text-sm text-rose-600 dark:text-rose-400 underline underline-offset-4">
+                    • កម្មន្តនៃសីតុណ្ហភាពថេរ (លំនាំអ៊ីសូទែម):
+                  </h5>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-300">T = ថេរ</span>
+                </div>
+
+                <div class="math-box p-2.5 rounded-xl bg-slate-900 text-emerald-300 border border-emerald-500/30 text-center text-xs sm:text-sm font-bold">
+                  W = nRT ln<span class="frac"><span class="num">V<sub>2</sub></span><span class="den">V<sub>1</sub></span></span> = nRT ln<span class="frac"><span class="num">P<sub>1</sub></span><span class="den">P<sub>2</sub></span></span>
+                </div>
+
+                <div class="text-xs space-y-1 p-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                  <div class="text-emerald-600 dark:text-emerald-400 font-semibold">&gt; តាមសមីការឧស្ម័នបរិសុទ្ធ:</div>
+                  <div class="math-box flex items-center justify-between text-[11px] sm:text-xs">
+                    <span>ភាពដើម: P<sub>1</sub>V<sub>1</sub> = nRT<br>ភាពស្រេច: P<sub>2</sub>V<sub>2</sub> = nRT</span>
+                    <span class="font-bold text-cyan-600 dark:text-cyan-400">&hArr; <span class="frac"><span class="num">V<sub>2</sub></span><span class="den">V<sub>1</sub></span></span> = <span class="frac"><span class="num">P<sub>1</sub></span><span class="den">P<sub>2</sub></span></span></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SVG Isothermal Hyperbola P-V Graph -->
+              <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex flex-col items-center">
+                <svg viewBox="0 0 240 150" class="w-full max-w-[230px] h-auto">
+                  <line x1="38" y1="125" x2="38" y2="12" stroke="#cbd5e1" stroke-width="1.6"/>
+                  <polygon points="35,16 38,8 41,16" fill="#cbd5e1"/>
+                  <text x="23" y="20" fill="#e2e8f0" font-size="11" font-family="monospace">P</text>
+
+                  <line x1="38" y1="125" x2="215" y2="125" stroke="#cbd5e1" stroke-width="1.6"/>
+                  <polygon points="212,122 220,125 212,128" fill="#cbd5e1"/>
+                  <text x="223" y="129" fill="#e2e8f0" font-size="11" font-family="monospace">V</text>
+
+                  <!-- Shaded Area under Hyperbola -->
+                  <path d="M 75 35 Q 110 85 175 98 L 175 125 L 75 125 Z" fill="rgba(16, 185, 129, 0.22)"/>
+                  <line x1="75" y1="35" x2="75" y2="125" stroke="#94a3b8" stroke-dasharray="3 3"/>
+                  <line x1="175" y1="98" x2="175" y2="125" stroke="#94a3b8" stroke-dasharray="3 3"/>
+
+                  <!-- Isothermal Curve -->
+                  <path d="M 65 22 Q 105 85 190 101" fill="none" stroke="#10b981" stroke-width="2.5"/>
+                  <circle cx="75" cy="35" r="3.5" fill="#10b981"/>
+                  <circle cx="175" cy="98" r="3.5" fill="#10b981"/>
+
+                  <text x="80" y="33" fill="#e2e8f0" font-size="11" font-family="monospace">A</text>
+                  <text x="175" y="90" fill="#e2e8f0" font-size="11" font-family="monospace">B</text>
+                  <text x="70" y="138" fill="#e2e8f0" font-size="10" font-family="monospace">Vₐ</text>
+                  <text x="170" y="138" fill="#e2e8f0" font-size="10" font-family="monospace">Vᵦ</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Process 4: កម្មន្តនៃមាឌថេរ (លំនាំអ៊ីសូករ) -->
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2">
+                <h5 class="font-bold text-xs sm:text-sm text-rose-600 dark:text-rose-400 underline underline-offset-4">
+                  • កម្មន្តនៃមាឌថេរ (លំនាំអ៊ីសូករ - Isochoric):
+                </h5>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300">
+                កាលណាមាឌឧស្ម័នថេរ (<span class="font-mono">V = ថេរ &Rightarrow; &Delta;V = 0</span>) នោះប្រព័ន្ធមិនបំពេញកម្មន្តទេ៖
+              </p>
+              <div class="math-box p-3 rounded-xl bg-slate-900 text-rose-400 border border-rose-500/30 text-center text-base font-bold">
+                W = 0
+              </div>
+            </div>
+
+            <!-- V-T Diagram from Page 2 Top-Right -->
+            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 flex flex-col items-center">
+              <span class="text-[11px] text-slate-400 mb-1">ក្រាប V-T (មាឌថេរ - លំនាំអ៊ីសូករ)</span>
+              <svg viewBox="0 0 220 120" class="w-full max-w-[200px] h-auto">
+                <line x1="35" y1="100" x2="35" y2="15" stroke="#cbd5e1" stroke-width="1.6"/>
+                <polygon points="32,18 35,10 38,18" fill="#cbd5e1"/>
+                <text x="20" y="22" fill="#e2e8f0" font-size="11" font-family="monospace">V</text>
+
+                <line x1="35" y1="100" x2="195" y2="100" stroke="#cbd5e1" stroke-width="1.6"/>
+                <polygon points="192,97 200,100 192,103" fill="#cbd5e1"/>
+                <text x="203" y="104" fill="#e2e8f0" font-size="11" font-family="monospace">T</text>
+
+                <!-- Vertical Isochoric / Isothermal reference lines -->
+                <line x1="115" y1="20" x2="115" y2="85" stroke="#f43f5e" stroke-width="2.5"/>
+                <polygon points="112,52 115,44 118,52" fill="#f43f5e"/>
+                <line x1="115" y1="85" x2="115" y2="100" stroke="#94a3b8" stroke-dasharray="3 3"/>
+
+                <line x1="130" y1="20" x2="130" y2="85" stroke="#94a3b8" stroke-width="2"/>
+                <polygon points="127,50 130,58 133,50" fill="#94a3b8"/>
+                <line x1="130" y1="85" x2="130" y2="100" stroke="#94a3b8" stroke-dasharray="3 3"/>
+                <text x="22" y="110" fill="#94a3b8" font-size="11" font-family="monospace">O</text>
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2.2: ២. ច្បាប់ទី១ ទែម៉ូឌីណាមិច & សញ្ញាសម្គាល់ -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder space-y-4">
+          <h4 class="font-bold text-sm sm:text-base text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xs font-mono">២</span>
+            <span>ច្បាប់ទី១ ទែម៉ូឌីណាមិច និង កតិកាសញ្ញា</span>
+          </h4>
+
+          <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            បើប្រព័ន្ធប្រែប្រួលកម្ដៅ ហើយបំពេញ ឬរងកម្មន្ត នោះថាមពលក្នុងវាក៏ប្រែប្រួលដែរ៖
+          </p>
+
+          <div class="math-box p-3.5 rounded-2xl bg-slate-900 text-cyan-300 border border-cyan-500/30 text-center text-sm sm:text-lg font-bold shadow-inner">
+            &Delta;U = Q &minus; W &nbsp;&hArr;&nbsp; Q = &Delta;U + W
+          </div>
+
+          <!-- 6 Sign Conventions Interactive Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs sm:text-sm">
+            <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-between">
+              <span class="font-semibold text-emerald-800 dark:text-emerald-300">&gt; បើប្រព័ន្ធធ្វើកម្មន្ត</span>
+              <span class="math-box font-bold px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-700 dark:text-emerald-200">&Rightarrow; W &gt; 0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-between">
+              <span class="font-semibold text-rose-800 dark:text-rose-300">&gt; បើប្រព័ន្ធរងកម្មន្ត</span>
+              <span class="math-box font-bold px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-700 dark:text-rose-200">&Rightarrow; W &lt; 0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-between">
+              <span class="font-semibold text-cyan-800 dark:text-cyan-300">&gt; បើប្រព័ន្ធស្រូបកម្ដៅ</span>
+              <span class="math-box font-bold px-2.5 py-1 rounded-lg bg-cyan-500/20 text-cyan-700 dark:text-cyan-200">&Rightarrow; Q &gt; 0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
+              <span class="font-semibold text-amber-800 dark:text-amber-300">&gt; បើប្រព័ន្ធបញ្ចេញកម្ដៅ</span>
+              <span class="math-box font-bold px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-200">&Rightarrow; Q &lt; 0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-between">
+              <span class="font-semibold text-indigo-800 dark:text-indigo-300">&gt; បើប្រព័ន្ធកើនថាមពលក្នុង</span>
+              <span class="math-box font-bold px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-700 dark:text-indigo-200">&Rightarrow; &Delta;U &gt; 0</span>
+            </div>
+            <div class="p-3 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-between">
+              <span class="font-semibold text-purple-800 dark:text-purple-300">&gt; បើប្រព័ន្ធថយថាមពលក្នុង</span>
+              <span class="math-box font-bold px-2.5 py-1 rounded-lg bg-purple-500/20 text-purple-700 dark:text-purple-200">&Rightarrow; &Delta;U &lt; 0</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2.3: ៣. ថាមពលក្នុង, ៤. គោលការណ៍សមមូល, ៥. គោលការណ៍ភាពដើម-ភាពស្រេច -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder space-y-5">
+          <!-- ៣. ថាមពលក្នុងនៃប្រព័ន្ធឧស្ម័ន -->
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm sm:text-base text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xs font-mono">៣</span>
+              <span>ថាមពលក្នុងនៃប្រព័ន្ធឧស្ម័ន</span>
+            </h4>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+              <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-center space-y-1.5">
+                <div class="font-bold text-rose-600 dark:text-rose-400">• ថាមពលក្នុងដើមឧស្ម័ន :</div>
+                <div class="math-box p-2 rounded-xl bg-white dark:bg-slate-950 font-bold">
+                  U<sub>1</sub> = <span class="frac"><span class="num">3</span><span class="den">2</span></span>nRT<sub>1</sub>
+                </div>
+              </div>
+              <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-center space-y-1.5">
+                <div class="font-bold text-rose-600 dark:text-rose-400">• ថាមពលក្នុងស្រេចឧស្ម័ន :</div>
+                <div class="math-box p-2 rounded-xl bg-white dark:bg-slate-950 font-bold">
+                  U<sub>2</sub> = <span class="frac"><span class="num">3</span><span class="den">2</span></span>nRT<sub>2</sub>
+                </div>
+              </div>
+              <div class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-center space-y-1.5">
+                <div class="font-bold text-rose-600 dark:text-rose-400">• បម្រែបម្រួលថាមពលក្នុង :</div>
+                <div class="math-box p-2 rounded-xl bg-white dark:bg-slate-950 font-bold text-cyan-600 dark:text-cyan-400">
+                  &Delta;U = U<sub>2</sub> &minus; U<sub>1</sub> = <span class="frac"><span class="num">3</span><span class="den">2</span></span>nR&Delta;T
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-200 dark:border-slate-800" />
+
+          <!-- ៤. គោលការណ៍សមមូល // បម្លែងស៊ិច -->
+          <div class="space-y-2.5">
+            <h4 class="font-bold text-sm sm:text-base text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xs font-mono">៤</span>
+              <span>គោលការណ៍សមមូល // បម្លែងស៊ិច</span>
+            </h4>
+            <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm">
+              <span>បម្លែងមួយស៊ិច នោះថាមពលក្នុងឧស្ម័នមិនប្រែប្រួល <strong class="font-mono text-rose-500">&Delta;U = 0</strong> តែ <strong class="font-mono">Q = &Delta;U + W</strong></span>
+              <span class="math-box px-4 py-2 rounded-xl bg-slate-900 text-emerald-300 border border-emerald-500/30 font-bold text-base text-center shrink-0">
+                &Rightarrow; Q = W
+              </span>
+            </div>
+          </div>
+
+          <hr class="border-slate-200 dark:border-slate-800" />
+
+          <!-- ៥. គោលការណ៍ភាពដើម - ភាពស្រេច (with 3-Path SVG Diagram from Page 3) -->
+          <div class="space-y-3">
+            <h4 class="font-bold text-sm sm:text-base text-indigo-700 dark:text-indigo-400 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xs font-mono">៥</span>
+              <span>គោលការណ៍ភាពដើម - ភាពស្រេច</span>
+            </h4>
+
+            <!-- SVG Diagram of ភាពដើម to ភាពស្រេច via Paths I, II, III -->
+            <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col items-center">
+              <svg viewBox="0 0 380 145" class="w-full max-w-[380px] h-auto">
+                <!-- Path I (Top Arc) -->
+                <path d="M 85 65 Q 190 15 295 65" fill="none" stroke="#38bdf8" stroke-width="2"/>
+                <polygon points="190,36 198,40 190,44" fill="#38bdf8"/>
+                <rect x="128" y="8" width="124" height="22" rx="5" fill="#0f172a" stroke="#38bdf8" stroke-dasharray="3 2"/>
+                <text x="190" y="23" text-anchor="middle" fill="#67e8f9" font-size="11" font-family="monospace">I (&Delta;U₁ = Q₁ &minus; W₁)</text>
+
+                <!-- Path II (Straight Middle Line) -->
+                <line x1="100" y1="75" x2="280" y2="75" stroke="#10b981" stroke-width="2"/>
+                <polygon points="190,71 198,75 190,79" fill="#10b981"/>
+                <rect x="125" y="47" width="130" height="22" rx="5" fill="#0f172a" stroke="#10b981" stroke-dasharray="3 2"/>
+                <text x="190" y="62" text-anchor="middle" fill="#6ee7b7" font-size="11" font-family="monospace">II (&Delta;U₂ = Q₂ &minus; W₂)</text>
+
+                <!-- Path III (Wavy Bottom Path) -->
+                <path d="M 85 85 C 120 125, 145 75, 175 112 C 205 135, 230 75, 295 85" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                <rect x="123" y="116" width="134" height="22" rx="5" fill="#0f172a" stroke="#f59e0b" stroke-dasharray="3 2"/>
+                <text x="190" y="131" text-anchor="middle" fill="#fde68a" font-size="11" font-family="monospace">III (&Delta;U₃ = Q₃ &minus; W₃)</text>
+
+                <!-- Left Oval: ភាពដើម -->
+                <ellipse cx="60" cy="75" rx="45" ry="20" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.8"/>
+                <text x="60" y="80" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">ភាពដើម</text>
+
+                <!-- Right Oval: ភាពស្រេច -->
+                <ellipse cx="320" cy="75" rx="45" ry="20" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.8"/>
+                <text x="320" y="80" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">ភាពស្រេច</text>
+              </svg>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              កាលណាប្រព័ន្ធមួយទទួលបម្លែងពីភាពដើមទៅភាពស្រេចដោយប្ដូរតែកម្ដៅ និងកម្មន្តជាមួយមជ្ឈដ្ឋានក្រៅ នោះតម្លៃពិជគណិត <span class="font-mono font-bold">&Delta;U</span> អាស្រ័យតែភាពដើម និងភាពស្រេចប៉ុណ្ណោះ៖
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="math-box p-3 rounded-xl bg-slate-900 text-cyan-300 border border-cyan-500/30 text-center font-bold text-sm">
+                &Delta;U<sub>1</sub> = &Delta;U<sub>2</sub> = &Delta;U<sub>3</sub>
+              </div>
+              <div class="math-box p-3 rounded-xl bg-slate-900 text-indigo-300 border border-indigo-500/30 text-center font-bold text-sm">
+                Q<sub>1</sub> &minus; W<sub>1</sub> = Q<sub>2</sub> &minus; W<sub>2</sub> = Q<sub>3</sub> &minus; W<sub>3</sub>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- =============================================================== -->
+      <!-- VARIABLES & CONSTANTS REFERENCE (តារាងអថេរ និង តម្លៃថេរ)         -->
+      <!-- =============================================================== -->
+      <div id="block-variables" class="formula-group space-y-4 pt-2">
+        <div class="p-4 rounded-[18px] bg-gradient-to-r from-emerald-600/15 via-teal-600/10 to-transparent border border-emerald-500/30 flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">តារាងសង្ខេបអថេរ និង ថេររូបវិទ្យា</span>
+            <h3 class="font-moul text-base sm:text-lg text-slate-900 dark:text-white mt-0.5">និយមន័យអថេរ និង តម្លៃថេរសំខាន់ៗ</h3>
+          </div>
+          <span class="text-2xl">🔖</span>
+        </div>
+
+        <!-- 4 Fundamental Constants Highlight Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div onclick="copyFormulaText('R = 8.31 J/(mol.K)')" class="searchable-card cursor-pointer p-3.5 rounded-2xl bg-white dark:bg-darkCard border border-emerald-500/30 hover:border-emerald-400 transition">
+            <div class="text-xs text-slate-500 dark:text-slate-400">ថេរសកលនៃឧស្ម័ន (R)</div>
+            <div class="math-box text-sm sm:text-base font-bold text-emerald-600 dark:text-emerald-400 mt-1">R = 8.31 J/mol&middot;K</div>
+          </div>
+          <div onclick="copyFormulaText('k_B = 1.38e-23 J/K')" class="searchable-card cursor-pointer p-3.5 rounded-2xl bg-white dark:bg-darkCard border border-cyan-500/30 hover:border-cyan-400 transition">
+            <div class="text-xs text-slate-500 dark:text-slate-400">ថេរបុលស្មាន់ (k<sub>B</sub>)</div>
+            <div class="math-box text-sm sm:text-base font-bold text-cyan-600 dark:text-cyan-400 mt-1">k<sub>B</sub> = 1.38&times;10<sup>&minus;23</sup> J/K</div>
+          </div>
+          <div onclick="copyFormulaText('N_A = 6.022e23 /mol')" class="searchable-card cursor-pointer p-3.5 rounded-2xl bg-white dark:bg-darkCard border border-indigo-500/30 hover:border-indigo-400 transition">
+            <div class="text-xs text-slate-500 dark:text-slate-400">ចំនួនអាវ៉ូកាដ្រូ (N<sub>A</sub>)</div>
+            <div class="math-box text-sm sm:text-base font-bold text-indigo-600 dark:text-indigo-400 mt-1">N<sub>A</sub> = 6.022&times;10<sup>23</sup> /mol</div>
+          </div>
+          <div onclick="copyFormulaText('V_mol = 22.4 L/mol')" class="searchable-card cursor-pointer p-3.5 rounded-2xl bg-white dark:bg-darkCard border border-amber-500/30 hover:border-amber-400 transition">
+            <div class="text-xs text-slate-500 dark:text-slate-400">មាឌម៉ូលរបស់ឧស្ម័ន (V<sub>mol</sub>)</div>
+            <div class="math-box text-sm sm:text-base font-bold text-amber-600 dark:text-amber-400 mt-1">V<sub>mol</sub> = 22.4 &#8467;/mol</div>
+          </div>
+        </div>
+
+        <!-- Complete Variables Grid from Page 1 & Page 2 -->
+        <article class="searchable-card p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200/90 dark:border-darkBorder">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 text-xs sm:text-sm">
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">P (N/m<sup>2</sup>, Pa)</span>
+              <span>សម្ពាធ</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">V (m<sup>3</sup>)</span>
+              <span>មាឌឧស្ម័ន</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">T<sub>K</sub> = (t<sub>&deg;C</sub> + 273) K</span>
+              <span>សីតុណ្ហភាព</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">n (mol)</span>
+              <span>ចំនួនម៉ូល</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">N</span>
+              <span>ចំនួនម៉ូលេគុល</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">&rho; (kg/m<sup>3</sup>)</span>
+              <span>ម៉ាសមាឌ</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">m (kg)</span>
+              <span>ម៉ាសសរុប</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">m<sub>0</sub> (kg)</span>
+              <span>ម៉ាសម៉ូលេគុលនីមួយៗ</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">K<sub>av</sub> (J)</span>
+              <span>ថាមពលស៊ីនេទិចមធ្យម</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">K (J)</span>
+              <span>ថាមពលស៊ីនេទិចសរុប</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">v<sub>rms</sub> (m/s)</span>
+              <span>ល្បឿនប្រសិទ្ធ</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">v<sub>av</sub> (m/s)</span>
+              <span>តម្លៃមធ្យមនៃល្បឿន</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">(v<sup>2</sup>)<sub>av</sub> (m<sup>2</sup>/s<sup>2</sup>)</span>
+              <span>មធ្យមការេល្បឿន</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">A (m<sup>2</sup>)</span>
+              <span>ផ្ទៃរងសម្ពាធ</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">&Delta;t (s)</span>
+              <span>រយៈពេលបម្លាស់ទី</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">L (m)</span>
+              <span>ប្រវែងទ្រនុងគូប</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">F (N)</span>
+              <span>កម្លាំងមានលើផ្ទៃគូប</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">p<sub>i</sub>, p<sub>f</sub> (kg&middot;m/s)</span>
+              <span>បរិមាណចលនាដើម/ស្រេច</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">v<sub>i</sub>, v<sub>f</sub> (m/s)</span>
+              <span>ល្បឿនដើម និង ស្រេច</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">V<sub>1</sub>, V<sub>2</sub> (m<sup>3</sup>)</span>
+              <span>មាឌឧស្ម័ននៅភាពដើម/ស្រេច</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex justify-between">
+              <span class="math-box font-bold text-cyan-600 dark:text-cyan-400">P<sub>1</sub>, P<sub>2</sub> (Pa)</span>
+              <span>សម្ពាធភាពដើម/ស្រេច</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 2: 12 QUESTIONS & ANSWERS (សំណួរ និង ចម្លើយទាំង ១២)              -->
+    <!-- =================================================================== -->
+    <section id="tab-qa" class="tab-section hidden space-y-4">
+      <!-- Top Filter & Action Controls -->
+      <div class="p-4 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h3 class="font-moul text-sm sm:text-base text-slate-900 dark:text-white">សំណួរ និង ចម្លើយត្រៀមប្រឡងបាក់ឌុប (១២ សំណួរ)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">ចុចលើសំណួរដើម្បីបើក/បិទចម្លើយ ឬធីក "ចាំហើយ" ដើម្បីតាមដានការរៀន</p>
+          </div>
+          <button id="toggleAllAnswersBtn" onclick="toggleAllQAAnswers()" class="px-3 py-1.5 rounded-xl bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 text-xs font-semibold hover:bg-indigo-500/25 transition">
+            👁️ លាក់ចម្លើយទាំងអស់ (សាកល្បងចងចាំ)
+          </button>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-1">
+          <button onclick="filterQAList('all')" data-qafilter="all" class="qa-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950">
+            ទាំងអស់ (12)
+          </button>
+          <button onclick="filterQAList('lesson1')" data-qafilter="lesson1" class="qa-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300">
+            មេរៀនទី១៖ ឧស្ម័ន (Q1–Q3)
+          </button>
+          <button onclick="filterQAList('lesson2')" data-qafilter="lesson2" class="qa-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300">
+            មេរៀនទី២៖ ទែម៉ូឌីណាមិច (Q4–Q12)
+          </button>
+          <button onclick="filterQAList('unmastered')" data-qafilter="unmastered" class="qa-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300">
+            ⏳ មិនទាន់ចាំ
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Container for the 12 Questions -->
+      <div id="qaListContainer" class="space-y-3"></div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 3: FLASHCARDS & SELF-QUIZ (បណ្ណចងចាំ 3D និង តេស្តសមត្ថភាព)       -->
+    <!-- =================================================================== -->
+    <section id="tab-flashcards" class="tab-section hidden space-y-5">
+      <!-- Mode Switcher: Flashcards vs Quiz -->
+      <div class="grid grid-cols-2 gap-2 p-1.5 rounded-2xl bg-slate-200/80 dark:bg-slate-900 border border-slate-300/60 dark:border-slate-800">
+        <button id="subTabFlashBtn" onclick="switchStudyMode('deck')" class="py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 shadow-sm transition">
+          🎴 បណ្ណចងចាំ 3D (Flashcards)
+        </button>
+        <button id="subTabQuizBtn" onclick="switchStudyMode('quiz')" class="py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 transition">
+          🏆 តេស្តសមត្ថភាព (10 សំណួរ)
+        </button>
+      </div>
+
+      <!-- 3D FLASHCARD DECK VIEW -->
+      <div id="studyDeckView" class="space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <button onclick="setFlashcardCategory('all')" data-fcat="all" class="fcat-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950">ទាំងអស់</button>
+            <button onclick="setFlashcardCategory('qa')" data-fcat="qa" class="fcat-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">សំណួរមេរៀន (12)</button>
+            <button onclick="setFlashcardCategory('formula')" data-fcat="formula" class="fcat-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">រូបមន្តសំខាន់ៗ (12)</button>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="flashcardCounter" class="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800">1 / 24</span>
+            <button onclick="shuffleFlashcards()" class="px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-500/15 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 active:scale-95 transition">
+              🔀 ឆ្លាស់បណ្ណ
+            </button>
+          </div>
+        </div>
+
+        <!-- 3D Flip Card Box -->
+        <div onclick="flipCurrentCard()" class="perspective-1000 cursor-pointer select-none">
+          <div id="flashcardInner" class="transform-style-3d relative w-full min-h-[290px] sm:min-h-[320px]">
+            <!-- Front Face -->
+            <div class="backface-hidden absolute inset-0 p-6 rounded-[24px] bg-gradient-to-br from-white via-slate-50 to-cyan-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950/60 border-2 border-cyan-500/30 shadow-xl flex flex-col justify-between">
+              <div class="flex items-center justify-between text-xs">
+                <span id="fcFrontBadge" class="px-2.5 py-1 rounded-full bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 font-semibold">សំណួរទី ១</span>
+                <span class="text-slate-400">👆 ចុចដើម្បីមើលចម្លើយ</span>
+              </div>
+              <div id="fcFrontContent" class="my-auto py-4 text-center text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-relaxed"></div>
+              <div class="text-center text-[11px] text-slate-400">ប៉ះលើបណ្ណដើម្បីត្រឡប់មើលចម្លើយ</div>
+            </div>
+
+            <!-- Back Face -->
+            <div class="backface-hidden rotate-y-180 absolute inset-0 p-6 rounded-[24px] bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white border-2 border-emerald-500/40 shadow-xl flex flex-col justify-between overflow-y-auto">
+              <div class="flex items-center justify-between text-xs">
+                <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-semibold">✅ ចម្លើយត្រឹមត្រូវ</span>
+                <span class="text-slate-400">👆 ចុចដើម្បីត្រឡប់វិញ</span>
+              </div>
+              <div id="fcBackContent" class="my-auto py-3 text-xs sm:text-sm leading-relaxed space-y-2"></div>
+              <div class="text-center text-[11px] text-emerald-300/80">អស្ចារ្យណាស់! ចុចប៊ូតុងខាងក្រោមដើម្បីបន្ត</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flashcard Navigation Controls -->
+        <div class="grid grid-cols-3 gap-2.5 pt-1">
+          <button onclick="prevFlashcard()" class="py-3 px-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-semibold text-xs sm:text-sm hover:border-cyan-500/40 active:scale-95 transition">
+            ⬅️ មុន
+          </button>
+          <button onclick="flipCurrentCard()" class="py-3 px-4 rounded-2xl bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30 font-bold text-xs sm:text-sm active:scale-95 transition">
+            🔄 ត្រឡប់បណ្ណ
+          </button>
+          <button onclick="nextFlashcard()" class="py-3 px-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-semibold text-xs sm:text-sm shadow-md shadow-cyan-500/20 active:scale-95 transition">
+            បន្ទាប់ ➡️
+          </button>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE 10-QUESTION QUIZ VIEW -->
+      <div id="studyQuizView" class="hidden space-y-4">
+        <div class="p-4 sm:p-5 rounded-[20px] bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder space-y-4">
+          <div class="flex items-center justify-between">
+            <span id="quizProgressBadge" class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-500/15 text-indigo-600 dark:text-indigo-300">សំណួរទី 1 / 10</span>
+            <span id="quizScoreBadge" class="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">ពិន្ទុ៖ 0</span>
+          </div>
+
+          <h4 id="quizQuestionText" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-relaxed"></h4>
+
+          <div id="quizOptionsContainer" class="space-y-2.5"></div>
+
+          <div id="quizExplanationBox" class="hidden p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed border"></div>
+
+          <div class="flex justify-between items-center pt-2">
+            <button onclick="restartQuiz()" class="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 underline">
+              ធ្វើតេស្តសារជាថ្មី
+            </button>
+            <button id="nextQuizBtn" onclick="nextQuizQuestion()" class="hidden px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs sm:text-sm font-bold shadow-md">
+              សំណួរបន្ទាប់ ➡️
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- TAB 4: INTERACTIVE PHYSICS LAB CALCULATOR (ម៉ាស៊ីនគណនារូបមន្ត)      -->
+    <!-- =================================================================== -->
+    <section id="tab-calculator" class="tab-section hidden space-y-5">
+      <div class="p-4 rounded-[18px] bg-gradient-to-r from-cyan-600/15 via-indigo-600/10 to-transparent border border-cyan-500/30">
+        <h3 class="font-moul text-sm sm:text-base text-slate-900 dark:text-white">🧮 ម៉ាស៊ីនគណនារូបមន្តរូបវិទ្យា (Physics Lab Calculator)</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">បញ្ចូលតម្លៃលេខដើម្បីគណនា និងមើលដំណាក់កាលជំនួសរូបមន្តដោយស្វ័យប្រវត្តិ</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Calculator 1: សមីការឧស្ម័នបរិសុទ្ធ PV = nRT -->
+        <div class="p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-sm text-cyan-600 dark:text-cyan-400">១. សមីការឧស្ម័នបរិសុទ្ធ (PV = nRT)</h4>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400">R = 8.31</span>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <label class="block font-semibold text-slate-600 dark:text-slate-300">ជ្រើសរើសទំហំត្រូវគណនា៖</label>
+            <select id="idealTarget" onchange="updateIdealGasInputs()" class="w-full p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-semibold">
+              <option value="P">គណនាសម្ពាធ P (Pa)</option>
+              <option value="V">គណនាមាឌ V (m³)</option>
+              <option value="n">គណនាចំនួនម៉ូល n (mol)</option>
+              <option value="T">គណនាសីតុណ្ហភាពដាច់ខាត T (K)</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5 text-xs">
+            <div id="wrapIdealP">
+              <label class="block text-slate-500 mb-1">សម្ពាធ P (Pa)</label>
+              <input id="inpIdealP" type="number" step="any" value="101325" oninput="calcIdealGas()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div id="wrapIdealV">
+              <label class="block text-slate-500 mb-1">មាឌ V (m³)</label>
+              <input id="inpIdealV" type="number" step="any" value="0.0224" oninput="calcIdealGas()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div id="wrapIdealn">
+              <label class="block text-slate-500 mb-1">ចំនួនម៉ូល n (mol)</label>
+              <input id="inpIdealn" type="number" step="any" value="2" oninput="calcIdealGas()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div id="wrapIdealT">
+              <label class="block text-slate-500 mb-1">សីតុណ្ហភាព T (K)</label>
+              <input id="inpIdealT" type="number" step="any" value="300" oninput="calcIdealGas()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+          </div>
+
+          <div id="resIdealGas" class="p-3 rounded-xl bg-slate-900 text-cyan-300 font-mono text-xs space-y-1 border border-cyan-500/30"></div>
+        </div>
+
+        <!-- Calculator 2: ថាមពលស៊ីនេទិច K, K_av & ល្បឿនប្រសិទ្ធ v_rms -->
+        <div class="p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-sm text-emerald-600 dark:text-emerald-400">២. ថាមពលស៊ីនេទិច & ល្បឿនប្រសិទ្ធ (v<sub>rms</sub>)</h4>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400">មេរៀនទី១</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 text-xs">
+            <div>
+              <label class="block text-slate-500 mb-1">ចំនួនម៉ូល n (mol)</label>
+              <input id="inpKinN" type="number" step="any" value="2" oninput="calcKinetic()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">សីតុណ្ហភាព t (°C)</label>
+              <input id="inpKinTc" type="number" step="any" value="27" oninput="calcKinetic()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">ម៉ាសម៉ូល M (g/mol)</label>
+              <input id="inpKinM" type="number" step="any" value="32" oninput="calcKinetic()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+          </div>
+
+          <div id="resKinetic" class="p-3 rounded-xl bg-slate-900 text-emerald-300 font-mono text-xs space-y-1.5 border border-emerald-500/30"></div>
+        </div>
+
+        <!-- Calculator 3: កម្មន្តនៃប្រព័ន្ធឧស្ម័ន (W) -->
+        <div class="p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-sm text-amber-600 dark:text-amber-400">៣. គណនាកម្មន្តនៃប្រព័ន្ធឧស្ម័ន (W)</h4>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-400">មេរៀនទី២</span>
+          </div>
+
+          <select id="workProcessType" onchange="calcWorkProcess()" class="w-full p-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-semibold">
+            <option value="isobaric">លំនាំអ៊ីសូបារ (សម្ពាធថេរ): W = P(V₂ - V₁)</option>
+            <option value="linear">សម្ពាធប្រែប្រួលស្មើ: W = ½(P₁ + P₂)(V₂ - V₁)</option>
+            <option value="isothermal">លំនាំអ៊ីសូទែម (សីតុណ្ហភាពថេរ): W = nRT ln(V₂/V₁)</option>
+          </select>
+
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div>
+              <label class="block text-slate-500 mb-1">សម្ពាធ P₁ (Pa)</label>
+              <input id="inpWP1" type="number" step="any" value="100000" oninput="calcWorkProcess()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">សម្ពាធ P₂ (Pa)</label>
+              <input id="inpWP2" type="number" step="any" value="200000" oninput="calcWorkProcess()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">មាឌដើម V₁ (m³)</label>
+              <input id="inpWV1" type="number" step="any" value="0.02" oninput="calcWorkProcess()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">មាឌស្រេច V₂ (m³)</label>
+              <input id="inpWV2" type="number" step="any" value="0.05" oninput="calcWorkProcess()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+          </div>
+
+          <div id="resWorkProcess" class="p-3 rounded-xl bg-slate-900 text-amber-300 font-mono text-xs space-y-1 border border-amber-500/30"></div>
+        </div>
+
+        <!-- Calculator 4: ច្បាប់ទី១ ទែម៉ូឌីណាមិច ΔU = Q - W -->
+        <div class="p-4 sm:p-5 rounded-[18px] bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-sm text-indigo-600 dark:text-indigo-400">៤. ច្បាប់ទី១ ទែម៉ូឌីណាមិច (&Delta;U = Q &minus; W)</h4>
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400">Q = &Delta;U + W</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5 text-xs">
+            <div>
+              <label class="block text-slate-500 mb-1">កម្ដៅ Q (J) [+: ស្រូប, -: បញ្ចេញ]</label>
+              <input id="inpLawQ" type="number" step="any" value="500" oninput="calcFirstLaw()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+            <div>
+              <label class="block text-slate-500 mb-1">កម្មន្ត W (J) [+: ធ្វើ, -: រង]</label>
+              <input id="inpLawW" type="number" step="any" value="200" oninput="calcFirstLaw()" class="w-full p-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 font-mono"/>
+            </div>
+          </div>
+
+          <div id="resFirstLaw" class="p-3 rounded-xl bg-slate-900 text-indigo-300 text-xs space-y-1.5 border border-indigo-500/30"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CREDIT -->
+    <footer class="mt-10 mb-6 p-4 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
+      <p class="font-semibold text-slate-700 dark:text-slate-200">ឯកសាររំលឹកមេរៀនរូបវិទ្យាថ្នាក់ទី១២ • បង្រៀនដោយអ្នកគ្រូ ស្រេង ស៊ូគាង</p>
+      <p>រៀបចំសម្រាប់សិស្សានុសិស្សត្រៀមប្រឡងសញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (BacII)</p>
+    </footer>
+  </main>
+
+  <!-- STICKY BOTTOM NAVIGATION BAR FOR MOBILE -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 backdrop-blur-xl bg-white/90 dark:bg-slate-950/90 border-t border-slate-200 dark:border-slate-800 px-2 py-1.5">
+    <div class="grid grid-cols-4 gap-1 max-w-md mx-auto">
+      <button onclick="switchMainTab('formulas')" data-tab="formulas" class="main-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition">
+        <span class="text-base leading-none mb-1">📐</span>
+        <span>រូបមន្ត</span>
+      </button>
+      <button onclick="switchMainTab('qa')" data-tab="qa" class="main-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition">
+        <span class="text-base leading-none mb-1">❓</span>
+        <span>សំណួរ (12)</span>
+      </button>
+      <button onclick="switchMainTab('flashcards')" data-tab="flashcards" class="main-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition">
+        <span class="text-base leading-none mb-1">🎴</span>
+        <span>បណ្ណ & តេស្ត</span>
+      </button>
+      <button onclick="switchMainTab('calculator')" data-tab="calculator" class="main-nav-btn flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-[11px] font-semibold transition">
+        <span class="text-base leading-none mb-1">🧮</span>
+        <span>គណនា</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- APPLICATION JAVASCRIPT -->
+  <script>
+    // =========================================================================
+    // 1. COMPLETE DATA: 12 QUESTIONS & ANSWERS (FROM PAGE 1 IMAGE)
+    // =========================================================================
+    const qaData = [
+      {
+        id: 1,
+        lesson: 'lesson1',
+        lessonTitle: 'មេរៀនទី១៖ ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន',
+        question: '១) ចូរពោលទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន។',
+        answerHtml: `
+          <p class="font-semibold text-cyan-600 dark:text-cyan-400 mb-1.5">ចំ. ពោលទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន ៖</p>
+          <ul class="space-y-1.5 pl-4 list-disc marker:text-cyan-500">
+            <li>ម៉ូលេគុលនៃឧស្ម័នចាត់ទុកជាចំនុចរូបធាតុ។</li>
+            <li>គ្មានអន្តរកម្មម៉ូលេគុលលើកលែងតែនៅពេលទង្គិច។</li>
+            <li>ម៉ូលេគុលឧស្ម័នទាំងអស់ធ្វើចលនាឥតឈប់ឈរ និងគ្មានសណ្ដាប់ធ្នាប់។</li>
+            <li>នៅចន្លោះពេលទង្គិចម៉ូលេគុលឧស្ម័នធ្វើចលនាត្រង់ស្មើ។</li>
+            <li>គ្រប់ការទង្គិចរបស់ម៉ូលេគុលជាទង្គិចខ្នាត។</li>
+            <li>ថាមពលស៊ីនេទិចមធ្យមនៃម៉ូលេគុលអាស្រ័យនឹងសីតុណ្ហភាព។</li>
+          </ul>
+        `
+      },
+      {
+        id: 2,
+        lesson: 'lesson1',
+        lessonTitle: 'មេរៀនទី១៖ ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន',
+        question: '២) ចូរសរសេរសមីការឧស្ម័នបរិសុទ្ធ។',
+        answerHtml: `
+          <div class="flex flex-wrap items-center gap-3">
+            <span>ចំ. សមីការឧស្ម័នបរិសុទ្ធ ៖</span>
+            <span class="math-box px-3.5 py-1.5 rounded-xl bg-slate-900 text-cyan-300 border border-cyan-500/30 font-bold text-sm">PV = nRT</span>
+          </div>
+        `
+      },
+      {
+        id: 3,
+        lesson: 'lesson1',
+        lessonTitle: 'មេរៀនទី១៖ ទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន',
+        question: '៣) ចូរសរសេររូបមន្តថាមពលស៊ីនេទិចសរុបនៃឧស្ម័ន។',
+        answerHtml: `
+          <div class="flex flex-wrap items-center gap-3">
+            <span>ចំ. រូបមន្តថាមពលស៊ីនេទិចសរុបនៃឧស្ម័ន ៖</span>
+            <span class="math-box px-3.5 py-1.5 rounded-xl bg-slate-900 text-emerald-300 border border-emerald-500/30 font-bold text-sm">
+              K = <span class="frac"><span class="num">3</span><span class="den">2</span></span>nRT = <span class="frac"><span class="num">3</span><span class="den">2</span></span>Nk<sub>B</sub>T
+            </span>
+          </div>
+        `
+      },
+      {
+        id: 4,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '៤) ដូចម្ដេចដែលហៅថាប្រព័ន្ធ ?',
+        answerHtml: `
+          <p><strong>ចំ. ប្រព័ន្ធ</strong> គឺជាវត្ថុ ឬសំណុំវត្ថុដែលគេលើកយកមកសិក្សាធៀបនឹងមជ្ឈដ្ឋានក្រៅ។</p>
+        `
+      },
+      {
+        id: 5,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '៥) ដូចម្ដេចដែលហៅថាភាពប្រព័ន្ធ ?',
+        answerHtml: `
+          <p><strong>ចំ. ភាពនៃប្រព័ន្ធ</strong> គឺជាសំណុំលេខដែលគេវាស់ទំហំរូបវិទ្យា (សំពាធ មាឌ និងសីតុណ្ហភាព) សម្រាប់សម្គាល់ប្រព័ន្ធនៅខណៈណាមួយ។</p>
+        `
+      },
+      {
+        id: 6,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '៦) ដូចម្ដេចដែលហៅថាបំលែងទែម៉ូឌីណាមិច ?',
+        answerHtml: `
+          <p><strong>ចំ. បំលែងទែម៉ូឌីណាមិច</strong> គឺជាលំនាំប្ដូរភាពនៃប្រព័ន្ធដោយប្ដូរតែកម្មន្ត និងកម្ដៅជាមួយមជ្ឈដ្ឋានក្រៅតែប៉ុណ្ណោះ។</p>
+        `
+      },
+      {
+        id: 7,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '៧) តើបំលែងទែម៉ូឌីណាមិចមានប៉ុន្មានប្រភេទ ? អ្វីខ្លះ ? ចូរពន្យល់ពីបំលែងនីមួយៗ។',
+        answerHtml: `
+          <p class="mb-1.5"><strong>ចំ.</strong> បំលែងទែម៉ូឌីណាមិចមានពីរគឺ <strong>បំលែងបិទ</strong> និង <strong>បំលែងចំហ</strong> ៖</p>
+          <ul class="space-y-1.5 pl-4 list-disc marker:text-indigo-500">
+            <li><strong>បំលែងបិទ</strong> គឺជាបំលែងដែលភាពដើម និងភាពស្រេចនៃប្រព័ន្ធមានភាពដូចគ្នា។</li>
+            <li><strong>បំលែងចំហ</strong> គឺជាបំលែងដែលភាពដើម និងភាពស្រេចនៃប្រព័ន្ធមានភាពខុសគ្នា។</li>
+          </ul>
+        `
+      },
+      {
+        id: 8,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '៨) ដូចម្ដេចដែលហៅថា ប្រព័ន្ធទែម៉ូឌីណាមិច ?',
+        answerHtml: `
+          <p><strong>ចំ. ប្រព័ន្ធទែម៉ូឌីណាមិច</strong> គឺជាប្រព័ន្ធដែលទទួលបំលែងទែម៉ូឌីណាមិច ដែលអាចចេញពីភាពដើមមួយទៅភាពស្រេចមួយតាមដំណើរប្រព្រឹត្តទៅខុសៗគ្នា។</p>
+        `
+      },
+      {
+        id: 9,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '៩) ចូរពោលច្បាប់ទី១ ទែម៉ូឌីណាមិច។',
+        answerHtml: `
+          <p><strong>ចំ. ពំនោលច្បាប់ទី១ទែម៉ូឌីណាមិច ៖</strong> “ក្នុងបំលែងទែម៉ូឌីណាមិចកម្ដៅស្រូបដោយប្រព័ន្ធស្មើនឹងផលបូកកម្មន្តដែលបង្កើតឡើងដោយប្រព័ន្ធ និងបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ” ។ (<span class="math-box font-bold text-cyan-500">Q = &Delta;U + W</span>)</p>
+        `
+      },
+      {
+        id: 10,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '១០) តើច្បាប់ទី១ទែម៉ូឌីណាមិចសិក្សាអំពីអ្វី ? ចូរពោលច្បាប់នេះ។',
+        answerHtml: `
+          <p class="mb-1.5"><strong>ចំ.</strong> ច្បាប់ទី១ទែម៉ូឌីណាមិចសិក្សាអំពី <strong>ការបម្លែងថាមពលកម្ដៅទៅជាកម្មន្ត ឬថាមពលផ្សេងៗទៀត</strong>។</p>
+          <p class="pl-3 border-l-2 border-indigo-500">– ពំនោលច្បាប់ទី១ទែម៉ូឌីណាមិច ៖ “ក្នុងបំលែងទែម៉ូឌីណាមិចកម្ដៅស្រូបដោយប្រព័ន្ធស្មើនឹងផលបូកកម្មន្តដែលបង្កើតឡើងដោយប្រព័ន្ធ និងបម្រែបម្រួលថាមពលក្នុងនៃប្រព័ន្ធ” ។</p>
+        `
+      },
+      {
+        id: 11,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '១១) ចូរពោលគោលការណ៍ភាពដើមនិងភាពស្រេច។',
+        answerHtml: `
+          <p><strong>ចំ.</strong> កាលណាប្រព័ន្ធមួយចេញពីភាពដើមទៅភាពស្រេច ដោយប្ដូរតែកម្មន្ត <span class="math-box font-bold">W</span> និងកម្ដៅ <span class="math-box font-bold">Q</span> ជាមួយមជ្ឈដ្ឋានក្រៅ ផលបូកពិជគណិត <span class="math-box font-bold text-cyan-500">Q &minus; W</span> អាស្រ័យតែនឹងភាពដើមនិងភាពស្រេច វាមិនអាស្រ័យនឹងរាងនៃបម្លែងទេ។</p>
+        `
+      },
+      {
+        id: 12,
+        lesson: 'lesson2',
+        lessonTitle: 'មេរៀនទី២៖ ច្បាប់ទី១ ទែម៉ូឌីណាមិច',
+        question: '១២) ចូរពោលគោលការណ៍សមមូល។',
+        answerHtml: `
+          <p><strong>ចំ. ពំនោលគោលការណ៍សមមូល ៖</strong> កាលណាប្រព័ន្ធមួយទទួលបំលែងបិទ (ធ្វើស៊ិចមួយ) ដោយប្ដូរតែកម្មន្តនិងកម្ដៅជាមួយមជ្ឈដ្ឋានក្រៅតែប៉ុណ្ណោះ នោះថាមពលក្នុងមិនប្រែប្រួល (<span class="math-box font-bold">&Delta;U = 0</span>) គឺ <span class="math-box font-bold text-emerald-500">Q = W</span> ។</p>
+        `
+      }
+    ];
+
+    // Additional Formula Flashcards
+    const formulaFlashcards = [
+      { badge: 'រូបមន្តមេរៀនទី១', front: 'សមីការភាពនៃឧស្ម័នបរិសុទ្ធ', back: '<div class="math-box text-center text-base font-bold text-cyan-300">PV = nRT = N&middot;k<sub>B</sub>T = (2/3)N&middot;K<sub>av</sub></div>' },
+      { badge: 'រូបមន្តមេរៀនទី១', front: 'ថាមពលស៊ីនេទិចមធ្យមនៃឧស្ម័ន ១ ម៉ូលេគុល (K_av)', back: '<div class="math-box text-center text-base font-bold text-cyan-300">K<sub>av</sub> = &frac12; m<sub>0</sub>(v<sup>2</sup>)<sub>av</sub> = (3/2)k<sub>B</sub>T</div>' },
+      { badge: 'រូបមន្តមេរៀនទី១', front: 'ថាមពលស៊ីនេទិចសរុបនៃឧស្ម័ន (K)', back: '<div class="math-box text-center text-base font-bold text-emerald-300">K = N&middot;K<sub>av</sub> = (3/2)Nk<sub>B</sub>T = (3/2)nRT</div>' },
+      { badge: 'រូបមន្តមេរៀនទី១', front: 'ល្បឿនប្រសិទ្ធនៃម៉ូលេគុលឧស្ម័ន (v_rms)', back: '<div class="math-box text-center text-base font-bold text-indigo-300">v<sub>rms</sub> = &radic;(3k<sub>B</sub>T / m<sub>0</sub>) = &radic;(3RT / M)</div>' },
+      { badge: 'រូបមន្តមេរៀនទី១', front: 'សម្ពាធក្នុងទ្រឹស្ដីស៊ីនេទិចនៃឧស្ម័ន (P)', back: '<div class="math-box text-center text-sm font-bold text-cyan-300">P = (2/3)(N/V)K<sub>av</sub> = (1/3)&rho;(v<sup>2</sup>)<sub>av</sub></div>' },
+      { badge: 'រូបមន្តមេរៀនទី១', front: 'ទំនាក់ទំនងរវាងចំនួនម៉ូល (n)', back: '<div class="math-box text-center text-base font-bold text-amber-300">n = m / M = N / N<sub>A</sub> = V / V<sub>mol</sub></div>' },
+      { badge: 'រូបមន្តមេរៀនទី២', front: 'កម្មន្តនៃសម្ពាធថេរ (លំនាំអ៊ីសូបារ)', back: '<div class="math-box text-center text-base font-bold text-cyan-300">W = F&Delta;x = P&Delta;V = P(V<sub>2</sub> &minus; V<sub>1</sub>)</div>' },
+      { badge: 'រូបមន្តមេរៀនទី២', front: 'កម្មន្តនៃសម្ពាធប្រែប្រួលស្មើ', back: '<div class="math-box text-center text-base font-bold text-amber-300">W = P<sub>1</sub>&Delta;V + &frac12;&Delta;P&Delta;V = &frac12;(P<sub>1</sub> + P<sub>2</sub>)&Delta;V</div>' },
+      { badge: 'រូបមន្តមេរៀនទី២', front: 'កម្មន្តនៃសីតុណ្ហភាពថេរ (លំនាំអ៊ីសូទែម)', back: '<div class="math-box text-center text-base font-bold text-emerald-300">W = nRT ln(V<sub>2</sub>/V<sub>1</sub>) = nRT ln(P<sub>1</sub>/P<sub>2</sub>)</div>' },
+      { badge: 'រូបមន្តមេរៀនទី២', front: 'កម្មន្តនៃមាឌថេរ (លំនាំអ៊ីសូករ)', back: '<div class="math-box text-center text-lg font-bold text-rose-400">W = 0 (ព្រោះ &Delta;V = 0)</div>' },
+      { badge: 'រូបមន្តមេរៀនទី២', front: 'ច្បាប់ទី១ ទែម៉ូឌីណាមិច និង បម្រែបម្រួលថាមពលក្នុង', back: '<div class="math-box text-center text-sm font-bold text-cyan-300">&Delta;U = Q &minus; W &hArr; Q = &Delta;U + W<br>&Delta;U = (3/2)nR&Delta;T</div>' },
+      { badge: 'រូបមន្តមេរៀនទី២', front: 'គោលការណ៍សមមូល (បម្លែងស៊ិច)', back: '<div class="math-box text-center text-base font-bold text-emerald-300">&Delta;U = 0 &Rightarrow; Q = W</div>' }
+    ];
+
+    // 10 Self-Quiz Questions
+    const quizQuestions = [
+      {
+        q: '១. តើសមីការឧស្ម័នបរិសុទ្ធមួយណាត្រឹមត្រូវ ?',
+        options: ['PV = nRT', 'P/V = nRT', 'PV = nR/T', 'P = nRTV'],
+        correct: 0,
+        explain: 'តាមសមីការភាពនៃឧស្ម័នបរិសុទ្ធ៖ PV = nRT = Nk_BT ។'
+      },
+      {
+        q: '២. បើម៉ូលេគុលឧស្ម័នផ្លាស់ទីក្នុងគូបប្រវែងទ្រនុង L ចេញពីផ្ទៃខាង A ទៅប៉ះ B ហើយត្រឡប់មកដល់ A វិញ តើវាចរបានចម្ងាយប៉ុន្មាន ?',
+        options: ['x = L/2', 'x = L', 'x = 2L', 'x = 4L'],
+        correct: 2,
+        explain: 'ចេញពី A ទៅ B បានចម្ងាយ L ហើយត្រឡប់ពី B មក A វិញបាន L ទៀត សរុប x = 2L ។'
+      },
+      {
+        q: '៣. តើថាមពលស៊ីនេទិចសរុបនៃឧស្ម័ន (K) កំណត់ដោយរូបមន្តណា ?',
+        options: ['K = (1/2)nRT', 'K = (3/2)nRT', 'K = (5/2)nRT', 'K = nRT'],
+        correct: 1,
+        explain: 'ថាមពលស៊ីនេទិចសរុបនៃឧស្ម័នគឺ K = (3/2)nRT = (3/2)Nk_BT ។'
+      },
+      {
+        q: '៤. តើរូបមន្តល្បឿនប្រសិទ្ធនៃម៉ូលេគុលនីមួយៗ (v_rms) ស្មើនឹងប៉ុន្មាន ?',
+        options: ['v_rms = √(3RT / M)', 'v_rms = √(2RT / M)', 'v_rms = 3RT / M', 'v_rms = √(RT / 3M)'],
+        correct: 0,
+        explain: 'ល្បឿនប្រសិទ្ធ v_rms = √(3k_BT / m₀) = √(3RT / M) ។'
+      },
+      {
+        q: '៥. ក្នុងលំនាំអ៊ីសូករ (មាឌថេរ V = ថេរ) តើកម្មន្តនៃប្រព័ន្ធឧស្ម័នស្មើប៉ុន្មាន ?',
+        options: ['W = PΔV > 0', 'W = nRT', 'W = 0', 'W < 0'],
+        correct: 2,
+        explain: 'ក្នុងលំនាំអ៊ីសូករ មាឌឧស្ម័នមិនប្រែប្រួល (ΔV = 0) ដូច្នេះកម្មន្ត W = 0 ។'
+      },
+      {
+        q: '៦. តាមច្បាប់ទី១ ទែម៉ូឌីណាមិច បើប្រព័ន្ធស្រូបកម្ដៅ និងធ្វើកម្មន្ត តើសញ្ញា Q និង W ដូចម្ដេច ?',
+        options: ['Q > 0 និង W > 0', 'Q < 0 និង W < 0', 'Q > 0 និង W < 0', 'Q < 0 និង W > 0'],
+        correct: 0,
+        explain: 'ប្រព័ន្ធស្រូបកម្ដៅ Q > 0 ហើយប្រព័ន្ធធ្វើកម្មន្ត W > 0 ។'
+      },
+      {
+        q: '៧. តើបំលែងបិទ (ឬបម្លែងស៊ិច) មានលក្ខណៈដូចម្ដេច ?',
+        options: [
+          'ភាពដើម និងភាពស្រេចខុសគ្នា',
+          'ភាពដើម និងភាពស្រេចដូចគ្នា ហើយ ΔU = 0 (Q = W)',
+          'សម្ពាធ និងមាឌស្មើសូន្យ',
+          'កម្មន្ត W = 0 ជានិច្ច'
+        ],
+        correct: 1,
+        explain: 'បំលែងបិទ គឺភាពដើម និងភាពស្រេចដូចគ្នា ធ្វើឱ្យ ΔU = 0 នាំឱ្យ Q = W (គោលការណ៍សមមូល)។'
+      },
+      {
+        q: '៨. តើតម្លៃថេរសកលនៃឧស្ម័ន R ស្មើប៉ុន្មានក្នុងប្រព័ន្ធ SI ?',
+        options: ['R = 1.38 × 10⁻²³ J/K', 'R = 8.31 J/(mol·K)', 'R = 6.022 × 10²³ /mol', 'R = 22.4 L/mol'],
+        correct: 1,
+        explain: 'R = 8.31 J/(mol·K) ជាថេរសកលនៃឧស្ម័ន (ចំណែក k_B = 1.38×10⁻²³ J/K ជាថេរបុលស្មាន់)។'
+      },
+      {
+        q: '៩. តើរូបមន្តកម្មន្តក្នុងលំនាំអ៊ីសូទែម (សីតុណ្ហភាពថេរ T = ថេរ) គឺអ្វី ?',
+        options: ['W = P(V₂ - V₁)', 'W = (3/2)nRΔT', 'W = nRT ln(V₂ / V₁)', 'W = 0'],
+        correct: 2,
+        explain: 'ក្នុងលំនាំអ៊ីសូទែម W = nRT ln(V₂/V₁) = nRT ln(P₁/P₂) ។'
+      },
+      {
+        q: '១០. បើប្រព័ន្ធឧស្ម័នស្រូបកម្ដៅ Q = 600 J និងបំពេញកម្មន្ត W = 250 J តើបម្រែបម្រួលថាមពលក្នុង ΔU ស្មើប៉ុន្មាន ?',
+        options: ['ΔU = 850 J', 'ΔU = 350 J', 'ΔU = -350 J', 'ΔU = 0 J'],
+        correct: 1,
+        explain: 'តាមរូបមន្ត ΔU = Q - W = 600 - 250 = 350 J (ថាមពលក្នុងកើនឡើង)។'
+      }
+    ];
+
+    // =========================================================================
+    // 2. STATE MANAGEMENT & LOCAL STORAGE
+    // =========================================================================
+    let masteredQAs = JSON.parse(localStorage.getItem('physics12_mastered_qa') || '[]');
+    let currentQAFilter = 'all';
+    let allAnswersVisible = true;
+    let activeTab = 'formulas';
+
+    // Flashcard state
+    let activeFlashcards = [];
+    let currentCardIndex = 0;
+    let isCardFlipped = false;
+
+    // Quiz state
+    let currentQuizIdx = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+
+    // =========================================================================
+    // 3. INITIALIZATION
+    // =========================================================================
+    window.onload = function () {
+      // Load saved theme
+      const savedTheme = localStorage.getItem('physics12_theme') || 'dark';
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+
+      renderQAList();
+      updateMasteryUI();
+      setFlashcardCategory('all');
+      renderQuizQuestion();
+
+      // Initialize Calculators
+      updateIdealGasInputs();
+      calcKinetic();
+      calcWorkProcess();
+      calcFirstLaw();
+
+      // Highlight initial active tab
+      switchMainTab('formulas');
+    };
+
+    // =========================================================================
+    // 4. THEME, TABS & TOAST HELPERS
+    // =========================================================================
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      htmlEl.classList.toggle('dark');
+      const isDark = htmlEl.classList.contains('dark');
+      localStorage.setItem('physics12_theme', isDark ? 'dark' : 'light');
+      showToast(isDark ? 'បានប្ដូរទៅផ្ទៃងងឹត (Dark Mode)' : 'បានប្ដូរទៅផ្ទៃភ្លឺ (Light Mode)', isDark ? '🌙' : '☀️');
+    }
+
+    function showToast(msg, icon = '✨') {
+      const box = document.getElementById('toastBox');
+      document.getElementById('toastMessage').textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      box.classList.remove('opacity-0', '-translate-y-3');
+      box.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        box.classList.add('opacity-0', '-translate-y-3');
+        box.classList.remove('opacity-100', 'translate-y-0');
+      }, 2200);
+    }
+
+    function copyFormulaText(text) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast(`បានចម្លង៖ ${text}`, '📋');
+    }
+
+    function switchMainTab(tabName) {
+      activeTab = tabName;
+      document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('hidden'));
+      const targetSec = document.getElementById(`tab-${tabName}`);
+      if (targetSec) targetSec.classList.remove('hidden');
+
+      document.querySelectorAll('.main-nav-btn').forEach(btn => {
+        const isMatch = btn.getAttribute('data-tab') === tabName;
+        if (isMatch) {
+          btn.className = 'main-nav-btn flex flex-col md:flex-row items-center justify-center py-1.5 md:py-2 px-1 md:px-3 rounded-xl text-[11px] md:text-xs font-bold bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30 transition';
+        } else {
+          btn.className = 'main-nav-btn flex flex-col md:flex-row items-center justify-center py-1.5 md:py-2 px-1 md:px-3 rounded-xl text-[11px] md:text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition';
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function jumpToLesson(lessonId) {
+      switchMainTab('formulas');
+      filterFormulaSection(lessonId);
+    }
+
+    function filterFormulaSection(sec) {
+      document.querySelectorAll('.formula-filter-btn').forEach(btn => {
+        const active = btn.getAttribute('data-fsec') === sec;
+        btn.className = active
+          ? 'formula-filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950 shadow-sm transition'
+          : 'formula-filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 transition';
+      });
+
+      const l1 = document.getElementById('block-lesson1');
+      const l2 = document.getElementById('block-lesson2');
+      const vars = document.getElementById('block-variables');
+
+      l1.classList.toggle('hidden', sec !== 'all' && sec !== 'lesson1');
+      l2.classList.toggle('hidden', sec !== 'all' && sec !== 'lesson2');
+      vars.classList.toggle('hidden', sec !== 'all' && sec !== 'variables');
+    }
+
+    // =========================================================================
+    // 5. GLOBAL SEARCH (FILTERS FORMULAS & Q&A)
+    // =========================================================================
+    function handleGlobalSearch(query) {
+      const q = query.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      clearBtn.classList.toggle('hidden', q.length === 0);
+
+      if (activeTab === 'formulas') {
+        filterFormulaSection('all');
+        document.querySelectorAll('.searchable-card').forEach(card => {
+          const text = card.innerText.toLowerCase();
+          card.classList.toggle('hidden', q.length > 0 && !text.includes(q));
+        });
+      } else if (activeTab === 'qa') {
+        renderQAList(q);
+      } else {
+        switchMainTab('formulas');
+        document.querySelectorAll('.searchable-card').forEach(card => {
+          const text = card.innerText.toLowerCase();
+          card.classList.toggle('hidden', q.length > 0 && !text.includes(q));
+        });
+      }
+    }
+
+    function clearGlobalSearch() {
+      const input = document.getElementById('globalSearchInput');
+      input.value = '';
+      handleGlobalSearch('');
+      renderQAList('');
+    }
+
+    // =========================================================================
+    // 6. 12 QUESTIONS & ANSWERS RENDERING & MASTERY TRACKING
+    // =========================================================================
+    function renderQAList(searchKeyword = '') {
+      const container = document.getElementById('qaListContainer');
+      const kw = searchKeyword.trim().toLowerCase();
+
+      const filtered = qaData.filter(item => {
+        if (currentQAFilter === 'lesson1' && item.lesson !== 'lesson1') return false;
+        if (currentQAFilter === 'lesson2' && item.lesson !== 'lesson2') return false;
+        if (currentQAFilter === 'unmastered' && masteredQAs.includes(item.id)) return false;
+        if (kw && !item.question.toLowerCase().includes(kw) && !item.answerHtml.toLowerCase().includes(kw)) return false;
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="p-8 rounded-2xl bg-white dark:bg-darkCard border border-slate-200 dark:border-darkBorder text-center text-sm text-slate-500">
+            មិនមានសំណួរត្រូវនឹងការស្វែងរកនេះទេ។
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const isMastered = masteredQAs.includes(item.id);
+        const badgeColor = item.lesson === 'lesson1'
+          ? 'bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border-cyan-500/30'
+          : 'bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 border-indigo-500/30';
+
+        return `
+          <article class="rounded-[18px] bg-white dark:bg-darkCard border ${isMastered ? 'border-emerald-500/50' : 'border-slate-200 dark:border-darkBorder'} overflow-hidden transition">
+            <div class="p-4 sm:p-5 flex items-start justify-between gap-3 cursor-pointer" onclick="toggleSingleQA(${item.id})">
+              <div class="space-y-1.5 flex-1">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${badgeColor}">${item.lessonTitle}</span>
+                  ${isMastered ? '<span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-500">✓ ចាំហើយ</span>' : ''}
+                </div>
+                <h4 class="font-bold text-sm sm:text-base text-rose-600 dark:text-rose-400 leading-relaxed">${item.question}</h4>
+              </div>
+
+              <button
+                onclick="event.stopPropagation(); toggleMasteredQA(${item.id})"
+                class="px-3 py-1.5 rounded-xl text-xs font-semibold border transition shrink-0 ${
+                  isMastered
+                    ? 'bg-emerald-500 text-slate-950 border-emerald-500'
+                    : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:border-emerald-500/50'
+                }"
+              >
+                ${isMastered ? '✓ ចាំហើយ' : 'កត់ថាចាំ'}
+              </button>
+            </div>
+
+            <div id="qa-ans-${item.id}" class="${allAnswersVisible ? '' : 'hidden'} px-4 pb-4 sm:px-5 sm:pb-5 pt-2 border-t border-slate-100 dark:border-slate-800/80 text-xs sm:text-sm text-slate-700 dark:text-slate-200 bg-slate-50/50 dark:bg-slate-900/40 leading-relaxed">
+              ${item.answerHtml}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleSingleQA(id) {
+      const el = document.getElementById(`qa-ans-${id}`);
+      if (el) el.classList.toggle('hidden');
+    }
+
+    function toggleAllQAAnswers() {
+      allAnswersVisible = !allAnswersVisible;
+      const btn = document.getElementById('toggleAllAnswersBtn');
+      btn.textContent = allAnswersVisible
+        ? '👁️ លាក់ចម្លើយទាំងអស់ (សាកល្បងចងចាំ)'
+        : '👁️ បង្ហាញចម្លើយទាំងអស់';
+      renderQAList(document.getElementById('globalSearchInput').value);
+    }
+
+    function filterQAList(filterType) {
+      currentQAFilter = filterType;
+      document.querySelectorAll('.qa-filter-btn').forEach(btn => {
+        const active = btn.getAttribute('data-qafilter') === filterType;
+        btn.className = active
+          ? 'qa-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950'
+          : 'qa-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300';
+      });
+      renderQAList(document.getElementById('globalSearchInput').value);
+    }
+
+    function toggleMasteredQA(id) {
+      if (masteredQAs.includes(id)) {
+        masteredQAs = masteredQAs.filter(item => item !== id);
+        showToast('បានដកចេញពីបញ្ជីចាំហើយ', '🔄');
+      } else {
+        masteredQAs.push(id);
+        showToast('អស្ចារ្យ! បានកត់ត្រាថាចាំសំណួរនេះហើយ', '🎉');
+      }
+      localStorage.setItem('physics12_mastered_qa', JSON.stringify(masteredQAs));
+      updateMasteryUI();
+      renderQAList(document.getElementById('globalSearchInput').value);
+    }
+
+    function updateMasteryUI() {
+      const count = masteredQAs.length;
+      const total = qaData.length;
+      const pct = Math.round((count / total) * 100);
+      document.getElementById('headerProgressTextDesktop').textContent = `${count}/${total}`;
+      document.getElementById('headerProgressTextMobile').textContent = `${count}/${total}`;
+      document.getElementById('topProgressBar').style.width = `${pct}%`;
+    }
+
+    // =========================================================================
+    // 7. 3D FLASHCARDS & QUIZ LOGIC
+    // =========================================================================
+    function switchStudyMode(mode) {
+      const deckView = document.getElementById('studyDeckView');
+      const quizView = document.getElementById('studyQuizView');
+      const flashBtn = document.getElementById('subTabFlashBtn');
+      const quizBtn = document.getElementById('subTabQuizBtn');
+
+      if (mode === 'deck') {
+        deckView.classList.remove('hidden');
+        quizView.classList.add('hidden');
+        flashBtn.className = 'py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 shadow-sm transition';
+        quizBtn.className = 'py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 transition';
+      } else {
+        deckView.classList.add('hidden');
+        quizView.classList.remove('hidden');
+        quizBtn.className = 'py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm transition';
+        flashBtn.className = 'py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 transition';
+      }
+    }
+
+    function setFlashcardCategory(cat) {
+      document.querySelectorAll('.fcat-btn').forEach(btn => {
+        const active = btn.getAttribute('data-fcat') === cat;
+        btn.className = active
+          ? 'fcat-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-cyan-500 text-slate-950'
+          : 'fcat-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800';
+      });
+
+      const qaCards = qaData.map(item => ({
+        badge: item.lessonTitle,
+        front: item.question,
+        back: item.answerHtml
+      }));
+
+      if (cat === 'qa') activeFlashcards = qaCards;
+      else if (cat === 'formula') activeFlashcards = [...formulaFlashcards];
+      else activeFlashcards = [...qaCards, ...formulaFlashcards];
+
+      currentCardIndex = 0;
+      isCardFlipped = false;
+      renderFlashcard();
+    }
+
+    function renderFlashcard() {
+      const card = activeFlashcards[currentCardIndex];
+      if (!card) return;
+
+      const inner = document.getElementById('flashcardInner');
+      inner.classList.toggle('rotate-y-180', isCardFlipped);
+
+      document.getElementById('fcFrontBadge').textContent = card.badge;
+      document.getElementById('fcFrontContent').innerHTML = card.front;
+      document.getElementById('fcBackContent').innerHTML = card.back;
+      document.getElementById('flashcardCounter').textContent = `${currentCardIndex + 1} / ${activeFlashcards.length}`;
+    }
+
+    function flipCurrentCard() {
+      isCardFlipped = !isCardFlipped;
+      renderFlashcard();
+    }
+
+    function nextFlashcard() {
+      isCardFlipped = false;
+      currentCardIndex = (currentCardIndex + 1) % activeFlashcards.length;
+      renderFlashcard();
+    }
+
+    function prevFlashcard() {
+      isCardFlipped = false;
+      currentCardIndex = (currentCardIndex - 1 + activeFlashcards.length) % activeFlashcards.length;
+      renderFlashcard();
+    }
+
+    function shuffleFlashcards() {
+      for (let i = activeFlashcards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [activeFlashcards[i], activeFlashcards[j]] = [activeFlashcards[j], activeFlashcards[i]];
+      }
+      currentCardIndex = 0;
+      isCardFlipped = false;
+      renderFlashcard();
+      showToast('បានឆ្លាស់បណ្ណចងចាំរួចរាល់!', '🔀');
+    }
+
+    // Quiz Functions
+    function renderQuizQuestion() {
+      const item = quizQuestions[currentQuizIdx];
+      quizAnswered = false;
+      document.getElementById('quizProgressBadge').textContent = `សំណួរទី ${currentQuizIdx + 1} / ${quizQuestions.length}`;
+      document.getElementById('quizScoreBadge').textContent = `ពិន្ទុ៖ ${quizScore} / ${quizQuestions.length}`;
+      document.getElementById('quizQuestionText').textContent = item.q;
+      document.getElementById('quizExplanationBox').classList.add('hidden');
+      document.getElementById('nextQuizBtn').classList.add('hidden');
+
+      const optsContainer = document.getElementById('quizOptionsContainer');
+      optsContainer.innerHTML = item.options.map((opt, idx) => `
+        <button
+          onclick="selectQuizOption(${idx})"
+          id="quiz-opt-${idx}"
+          class="w-full text-left p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 text-xs sm:text-sm font-medium transition flex items-center justify-between"
+        >
+          <span class="math-box">${opt}</span>
+        </button>
+      `).join('');
+    }
+
+    function selectQuizOption(selectedIdx) {
+      if (quizAnswered) return;
+      quizAnswered = true;
+      const item = quizQuestions[currentQuizIdx];
+      const isCorrect = selectedIdx === item.correct;
+      if (isCorrect) quizScore++;
+
+      document.getElementById('quizScoreBadge').textContent = `ពិន្ទុ៖ ${quizScore} / ${quizQuestions.length}`;
+
+      item.options.forEach((_, idx) => {
+        const btn = document.getElementById(`quiz-opt-${idx}`);
+        if (idx === item.correct) {
+          btn.className = 'w-full text-left p-3.5 rounded-xl bg-emerald-500/20 border-2 border-emerald-500 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm font-bold flex items-center justify-between';
+          btn.innerHTML += '<span>✅</span>';
+        } else if (idx === selectedIdx) {
+          btn.className = 'w-full text-left p-3.5 rounded-xl bg-rose-500/20 border-2 border-rose-500 text-rose-700 dark:text-rose-300 text-xs sm:text-sm font-bold flex items-center justify-between';
+          btn.innerHTML += '<span>❌</span>';
+        }
+      });
+
+      const expBox = document.getElementById('quizExplanationBox');
+      expBox.classList.remove('hidden');
+      expBox.className = `p-3.5 rounded-2xl text-xs sm:text-sm leading-relaxed border ${
+        isCorrect
+          ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-300'
+          : 'bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-300'
+      }`;
+      expBox.innerHTML = `<strong>ការពន្យល់៖</strong> ${item.explain}`;
+
+      const nextBtn = document.getElementById('nextQuizBtn');
+      nextBtn.classList.remove('hidden');
+      nextBtn.textContent = currentQuizIdx < quizQuestions.length - 1 ? 'សំណួរបន្ទាប់ ➡️' : 'មើលលទ្ធផលសរុប 🏆';
+    }
+
+    function nextQuizQuestion() {
+      if (currentQuizIdx < quizQuestions.length - 1) {
+        currentQuizIdx++;
+        renderQuizQuestion();
+      } else {
+        showToast(`អ្នកទទួលបានពិន្ទុ ${quizScore}/${quizQuestions.length} !`, '🏆');
+        restartQuiz();
+      }
+    }
+
+    function restartQuiz() {
+      currentQuizIdx = 0;
+      quizScore = 0;
+      renderQuizQuestion();
+    }
+
+    // =========================================================================
+    // 8. INTERACTIVE PHYSICS CALCULATORS
+    // =========================================================================
+    function updateIdealGasInputs() {
+      const target = document.getElementById('idealTarget').value;
+      ['P', 'V', 'n', 'T'].forEach(v => {
+        const wrap = document.getElementById(`wrapIdeal${v}`);
+        wrap.classList.toggle('opacity-40', v === target);
+        document.getElementById(`inpIdeal${v}`).disabled = (v === target);
+      });
+      calcIdealGas();
+    }
+
+    function calcIdealGas() {
+      const R = 8.31;
+      const target = document.getElementById('idealTarget').value;
+      let P = parseFloat(document.getElementById('inpIdealP').value) || 0;
+      let V = parseFloat(document.getElementById('inpIdealV').value) || 0;
+      let n = parseFloat(document.getElementById('inpIdealn').value) || 0;
+      let T = parseFloat(document.getElementById('inpIdealT').value) || 0;
+      const box = document.getElementById('resIdealGas');
+
+      if (target === 'P') {
+        const res = V !== 0 ? (n * R * T) / V : 0;
+        box.innerHTML = `
+          <div>រូបមន្ត៖ P = nRT / V</div>
+          <div>ជំនួសលេខ៖ P = (${n} &times; 8.31 &times; ${T}) / ${V}</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; P = ${res.toLocaleString(undefined, { maximumFractionDigits: 2 })} Pa</div>
+        `;
+      } else if (target === 'V') {
+        const res = P !== 0 ? (n * R * T) / P : 0;
+        box.innerHTML = `
+          <div>រូបមន្ត៖ V = nRT / P</div>
+          <div>ជំនួសលេខ៖ V = (${n} &times; 8.31 &times; ${T}) / ${P}</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; V = ${res.toExponential(4)} m³ (${(res * 1000).toFixed(2)} L)</div>
+        `;
+      } else if (target === 'n') {
+        const res = T !== 0 ? (P * V) / (R * T) : 0;
+        box.innerHTML = `
+          <div>រូបមន្ត៖ n = PV / (RT)</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; n = ${res.toFixed(4)} mol</div>
+        `;
+      } else {
+        const res = n !== 0 ? (P * V) / (n * R) : 0;
+        box.innerHTML = `
+          <div>រូបមន្ត៖ T = PV / (nR)</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; T = ${res.toFixed(2)} K (${(res - 273).toFixed(2)} &deg;C)</div>
+        `;
+      }
+    }
+
+    function calcKinetic() {
+      const R = 8.31;
+      const kB = 1.38e-23;
+      const n = parseFloat(document.getElementById('inpKinN').value) || 0;
+      const tc = parseFloat(document.getElementById('inpKinTc').value) || 0;
+      const M_g = parseFloat(document.getElementById('inpKinM').value) || 1;
+      const T = tc + 273;
+      const M_kg = M_g * 1e-3;
+
+      const K_total = 1.5 * n * R * T;
+      const K_av = 1.5 * kB * T;
+      const v_rms = M_kg > 0 ? Math.sqrt((3 * R * T) / M_kg) : 0;
+
+      document.getElementById('resKinetic').innerHTML = `
+        <div>• សីតុណ្ហភាពដាច់ខាត៖ T = ${tc} + 273 = <strong>${T} K</strong></div>
+        <div>• ថាមពលស៊ីនេទិចសរុប៖ K = (3/2)nRT = <strong>${K_total.toFixed(2)} J</strong></div>
+        <div>• ថាមពលស៊ីនេទិចមធ្យម ១ ម៉ូលេគុល៖ K<sub>av</sub> = (3/2)k<sub>B</sub>T = <strong>${K_av.toExponential(3)} J</strong></div>
+        <div>• ល្បឿនប្រសិទ្ធ៖ v<sub>rms</sub> = &radic;(3RT/M) = <strong>${v_rms.toFixed(2)} m/s</strong></div>
+      `;
+    }
+
+    function calcWorkProcess() {
+      const mode = document.getElementById('workProcessType').value;
+      const P1 = parseFloat(document.getElementById('inpWP1').value) || 0;
+      const P2 = parseFloat(document.getElementById('inpWP2').value) || 0;
+      const V1 = parseFloat(document.getElementById('inpWV1').value) || 0;
+      const V2 = parseFloat(document.getElementById('inpWV2').value) || 0;
+      const dV = V2 - V1;
+      const box = document.getElementById('resWorkProcess');
+
+      if (mode === 'isobaric') {
+        const W = P1 * dV;
+        box.innerHTML = `
+          <div>លំនាំអ៊ីសូបារ៖ W = P₁(V₂ &minus; V₁)</div>
+          <div>ជំនួសលេខ៖ W = ${P1} &times; (${V2} &minus; ${V1})</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; W = ${W.toFixed(2)} J (${W > 0 ? 'ប្រព័ន្ធធ្វើកម្មន្ត' : W < 0 ? 'ប្រព័ន្ធរងកម្មន្ត' : 'W = 0'})</div>
+        `;
+      } else if (mode === 'linear') {
+        const W = 0.5 * (P1 + P2) * dV;
+        box.innerHTML = `
+          <div>សម្ពាធប្រែប្រួលស្មើ៖ W = &frac12;(P₁ + P₂)(V₂ &minus; V₁)</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; W = ${W.toFixed(2)} J</div>
+        `;
+      } else {
+        const W = (V1 > 0 && V2 > 0) ? P1 * V1 * Math.log(V2 / V1) : 0;
+        box.innerHTML = `
+          <div>លំនាំអ៊ីសូទែម៖ W = nRT ln(V₂/V₁) = P₁V₁ ln(V₂/V₁)</div>
+          <div class="text-sm font-bold text-white pt-1">&Rightarrow; W = ${W.toFixed(2)} J</div>
+        `;
+      }
+    }
+
+    function calcFirstLaw() {
+      const Q = parseFloat(document.getElementById('inpLawQ').value) || 0;
+      const W = parseFloat(document.getElementById('inpLawW').value) || 0;
+      const dU = Q - W;
+
+      const qText = Q > 0 ? 'ប្រព័ន្ធស្រូបកម្ដៅ (Q > 0)' : Q < 0 ? 'ប្រព័ន្ធបញ្ចេញកម្ដៅ (Q < 0)' : 'គ្មានការប្ដូរកម្ដៅ (Q = 0)';
+      const wText = W > 0 ? 'ប្រព័ន្ធធ្វើកម្មន្ត (W > 0)' : W < 0 ? 'ប្រព័ន្ធរងកម្មន្ត (W < 0)' : 'គ្មានកម្មន្ត (W = 0)';
+      const uText = dU > 0 ? 'ប្រព័ន្ធកើនថាមពលក្នុង (&Delta;U > 0)' : dU < 0 ? 'ប្រព័ន្ធថយថាមពលក្នុង (&Delta;U < 0)' : 'ថាមពលក្នុងមិនប្រែប្រួល (&Delta;U = 0)';
+
+      document.getElementById('resFirstLaw').innerHTML = `
+        <div class="font-mono">រូបមន្ត៖ &Delta;U = Q &minus; W = ${Q} &minus; (${W}) = <strong class="text-white text-sm">${dU} J</strong></div>
+        <div class="text-cyan-300">• ${qText}</div>
+        <div class="text-amber-300">• ${wText}</div>
+        <div class="text-emerald-300 font-semibold">• ${uText}</div>
+      `;
+    }
+  </script>
+</body>
+</html>
